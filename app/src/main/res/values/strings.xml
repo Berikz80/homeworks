@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">AN07</string>
+    <string name="dz1">Homework1</string>
+    <string name="dz2">Homework2</string>
+    <string name="dz3">Homework3</string>
 </resources>
