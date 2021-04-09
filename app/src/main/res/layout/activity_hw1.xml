@@ -18,6 +18,17 @@
         android:elevation="@dimen/margin"
         android:contentDescription="@string/image_box" />
 
+    <TextView
+        android:id="@+id/text_picture_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/double_margin"
+        android:text="@string/picture_url"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toTopOf="@+id/input_url"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <EditText
         android:id="@+id/input_url"
         android:layout_width="match_parent"
@@ -29,7 +40,8 @@
         tools:layout_editor_absoluteX="0dp"
         android:hint="@string/please_enter_picture_url"
         android:importantForAutofill="no"
-        android:inputType="textUri" />
+        android:inputType="textUri"
+        android:labelFor="@id/text_picture_url"/>
 
     <Button
         android:id="@+id/button_show"

@@ -6,4 +6,5 @@
     <string name="show_button">Find&amp;Show</string>
     <string name="please_enter_picture_url">Please enter picture URL</string>
     <string name="image_box">Image Box</string>
+    <string name="picture_url">Picture URL:</string>
 </resources>
