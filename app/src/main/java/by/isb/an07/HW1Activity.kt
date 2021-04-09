@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import com.squareup.picasso.Picasso
 
 class HW1Activity : AppCompatActivity() {
@@ -17,7 +18,8 @@ class HW1Activity : AppCompatActivity() {
         val buttonShow = findViewById<Button>(R.id.button_show)
 
         buttonShow.setOnClickListener {
-            Picasso.get().load(inputUrl.text.toString()).into(imageBox)
+            if (inputUrl.text.isNotEmpty()) Picasso.get().load(inputUrl.text.toString()).into(imageBox)
+            else Toast.makeText(this, "URL is empty", Toast.LENGTH_SHORT).show()
         }
     }
 }

@@ -9,11 +9,14 @@
     <ImageView
         android:id="@+id/image_box"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_margin="@dimen/margin"
         app:layout_constraintBottom_toTopOf="@+id/button_show"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="16dp"
+        android:background="@color/teal_200"
+        android:elevation="@dimen/margin"
+        android:contentDescription="@string/image_box" />
 
     <EditText
         android:id="@+id/input_url"
@@ -23,7 +26,10 @@
         android:height="@dimen/quad_margin"
         app:layout_constraintBottom_toTopOf="@+id/button_show"
         app:layout_constraintTop_toBottomOf="@+id/image_box"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="0dp"
+        android:hint="@string/please_enter_picture_url"
+        android:importantForAutofill="no"
+        android:inputType="textUri" />
 
     <Button
         android:id="@+id/button_show"
@@ -31,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/double_margin"
         android:text="@string/show_button"
+        android:textSize="@dimen/button_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 
