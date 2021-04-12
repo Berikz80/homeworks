@@ -19,5 +19,11 @@ class MainActivity : AppCompatActivity() {
         buttonHw1.setOnClickListener {
             startActivity(hw1Intent)
         }
+
+        val hw2Intent = Intent(this,HW1Activity::class.java)
+
+        buttonHw2.setOnClickListener {
+            startActivity(hw2Intent)
+        }
     }
 }

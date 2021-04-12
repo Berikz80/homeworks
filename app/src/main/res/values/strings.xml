@@ -7,4 +7,6 @@
     <string name="please_enter_picture_url">Please enter picture URL</string>
     <string name="image_box">Image Box</string>
     <string name="picture_url">Picture URL:</string>
+    <string name="button_flags">Flags</string>
+    <string name="button_animation">animation</string>
 </resources>
