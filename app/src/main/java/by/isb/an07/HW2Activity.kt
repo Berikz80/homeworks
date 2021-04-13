@@ -18,5 +18,9 @@ class HW2Activity : AppCompatActivity() {
         buttonFlags.setOnClickListener {
             startActivity(Intent(this,FlagsActivity::class.java))
         }
+
+        buttonAnimation.setOnClickListener {
+            startActivity(Intent(this,AnimationActivity::class.java))
+        }
     }
 }
