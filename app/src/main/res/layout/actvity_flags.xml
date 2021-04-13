@@ -30,6 +30,21 @@
                 android:textSize="@dimen/text_size_big" />
 
             <include
+                layout="@layout/flag_denmark"
+                android:layout_width="@dimen/flag_width"
+                android:layout_height="@dimen/flag_height"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/double_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/double_margin"
+                android:text="@string/text_denmark"
+                android:textSize="@dimen/text_size_big" />
+
+            <include
                 layout="@layout/flag_latvia"
                 android:layout_width="@dimen/flag_width"
                 android:layout_height="@dimen/flag_height"
