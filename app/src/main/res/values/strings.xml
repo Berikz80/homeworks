@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AN07</string>
+    <string name="dz1">Homework1</string>
+    <string name="dz2">Homework2</string>
+    <string name="dz3">Homework3</string>
+    <string name="show_button">Find&amp;Show</string>
+    <string name="please_enter_picture_url">Please enter picture URL</string>
+    <string name="image_box">Image Box</string>
+    <string name="picture_url">Picture URL:</string>
 </resources>
