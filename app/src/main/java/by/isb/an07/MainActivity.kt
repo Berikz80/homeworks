@@ -14,10 +14,12 @@ class MainActivity : AppCompatActivity() {
         val buttonHw2 = findViewById<Button>(R.id.hw2_button)
         val buttonHw3 = findViewById<Button>(R.id.hw3_button)
 
-        val hw1Intent = Intent(this,HW1Activity::class.java)
-
         buttonHw1.setOnClickListener {
-            startActivity(hw1Intent)
+            startActivity(Intent(this,HW1Activity::class.java))
+        }
+
+        buttonHw2.setOnClickListener {
+            startActivity(Intent(this,HW2Activity::class.java))
         }
     }
 }
