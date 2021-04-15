@@ -13,6 +13,7 @@
         android:theme="@style/Theme.AN07">
         <activity android:name=".HW1Activity" />
         <activity android:name=".HW2Activity" />
+        <activity android:name=".HW3Activity" />
         <activity android:name=".FlagsActivity" />
         <activity android:name=".AnimationActivity" />
         <activity android:name=".MainActivity">

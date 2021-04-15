@@ -21,5 +21,9 @@ class MainActivity : AppCompatActivity() {
         buttonHw2.setOnClickListener {
             startActivity(Intent(this,HW2Activity::class.java))
         }
+
+        buttonHw3.setOnClickListener {
+            startActivity(Intent(this,HW3Activity::class.java))
+        }
     }
 }

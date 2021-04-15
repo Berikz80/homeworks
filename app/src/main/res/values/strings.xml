@@ -15,4 +15,7 @@
     <string name="text_belgium">Belgium</string>
     <string name="text_spain">Spain</string>
     <string name="text_denmark">Denmark</string>
+    <string name="text_name1">Гомельская область</string>
+    <string name="text_name2">Могилевская область</string>
+    <string name="text_name3">Минская область</string>
 </resources>
