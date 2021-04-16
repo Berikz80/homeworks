@@ -5,42 +5,42 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.util.*
 import kotlin.random.Random
 
 class HW3ViewModel : ViewModel() {
 
-    val myRegions = arrayOf(MutableLiveData<Region>())
+    val myRegions = arrayOf(
+        MutableLiveData(Region("Гомельская область")),
+        MutableLiveData(Region("Брестская область")),
+        MutableLiveData(Region("Минская область")),
+    )
+    var isStop = false
 
-    val random = Random(12345)
+    private val random = Random(12345)
 
     fun startDataLoading() {
 
-        fun loadInt(): Int {
-            var r = 0
-            viewModelScope.launch {
-                delay(random.nextLong(5000))
-                r = random.nextLong(100).toInt()
+//        for (j in 0..100) {
+//            while (!isStop) {
+        val timer = Timer()
+        timer.schedule(object : TimerTask() {
+            override fun run() {
+
+                for (i in 0..2) {
+                    viewModelScope.launch {
+                        delay(random.nextLong(3000))
+                        myRegions[i].value = myRegions[i].value?.also {
+                            it.corn = it.corn.plus(random.nextLong(100).toInt())
+                            it.potato = it.potato.plus(random.nextLong(100).toInt())
+                            it.cabbage = it.cabbage.plus(random.nextLong(100).toInt())
+                            isStop = it.corn > 1000
+                        }
+                    }
+                }
             }
-            return r
-        }
-        myRegions[0] = MutableLiveData(Region("Гомельская область"))
-        myRegions[1] = MutableLiveData(Region("Могилевская область"))
-        myRegions[2] = MutableLiveData(Region("Брестская область"))
-
-        while (true) {
-
-            for (i in 0..2) {
-                myRegions[i].value?.corn?.plus(loadInt())
-                myRegions[i].value?.potato?.plus(loadInt())
-                myRegions[i].value?.cabbage?.plus(loadInt())
-            }
-
-        }
-
-
-
-
+        }, 1, 3000)
     }
 
-
 }
+

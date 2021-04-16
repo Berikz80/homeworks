@@ -34,5 +34,7 @@ class HW3Activity : AppCompatActivity() {
             text3_3.text = it.cabbage.toString()
         }
 
+        viewModel.startDataLoading()
+
     }
 }
