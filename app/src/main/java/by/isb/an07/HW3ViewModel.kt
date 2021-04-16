@@ -18,32 +18,33 @@ class HW3ViewModel : ViewModel() {
         MutableLiveData(Region("Брестская область")),
         MutableLiveData(Region("Минская область")),
     )
-    var isStop = false
+
+    var isStop = MutableLiveData<Boolean>(false)
+
+    var winner = 0
 
     private val random = Random(12345)
 
     fun startDataLoading() {
 
-//        for (j in 0..100) {
-//            while (!isStop) {
         val timer = Timer()
         timer.schedule(object : TimerTask() {
             override fun run() {
-                if (!isStop) for (i in 0..2) {
+                if (isStop.value == false) for (i in 0..2) {
                     viewModelScope.launch {
                         delay(random.nextLong(3000))
                         myRegions[i].value = myRegions[i].value?.also {
                             it.corn = it.corn.plus(random.nextLong(100).toInt())
                             it.potato = it.potato.plus(random.nextLong(100).toInt())
                             it.cabbage = it.cabbage.plus(random.nextLong(100).toInt())
-                            isStop = (it.corn > 1000) || (it.potato > 1000) || (it.cabbage > 1000)
+                            if ((it.corn > 1000) || (it.potato > 1000) || (it.cabbage > 1000)) {
+                                isStop.value = true
+                                winner = i
+                            }
                         }
                     }
                 }
-                else {
-                    this.cancel()
-//                    Toast.makeText(HW3Activity.getContext(), "Победитель", Toast.LENGTH_LONG).show()
-                }
+                else this.cancel()
             }
         }, 1, 3000)
     }
