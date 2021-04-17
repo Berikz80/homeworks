@@ -37,7 +37,7 @@ class HW3ViewModel : ViewModel() {
                             it.corn = it.corn.plus(random.nextLong(100).toInt())
                             it.potato = it.potato.plus(random.nextLong(100).toInt())
                             it.cabbage = it.cabbage.plus(random.nextLong(100).toInt())
-                            if ((it.corn > 1000) || (it.potato > 1000) || (it.cabbage > 1000)) {
+                            if ((it.corn > 1000) && (it.potato > 1000) && (it.cabbage > 1000)) {
                                 isStop.value = true
                                 winner = i
                             }

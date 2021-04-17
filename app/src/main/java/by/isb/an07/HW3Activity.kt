@@ -26,9 +26,13 @@ class HW3Activity : AppCompatActivity() {
         anim.repeatCount = 2
 
         viewModel.isStop.observe(this){
-            if (it) Toast.makeText(this,"Победитель: "+viewModel.myRegions[viewModel.winner].value?.name.toString(), Toast.LENGTH_LONG).show()
-        }
 
+
+            if (it) {
+                val dialog = CustomDialogFragment("Победитель: " + viewModel.myRegions[viewModel.winner].value?.name.toString())
+                dialog.show(supportFragmentManager, "custom")
+            }
+        }
 
         viewModel.myRegions[0].observe(this) {
             text1_1.text = it.corn.toString()
