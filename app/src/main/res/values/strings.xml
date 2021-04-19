@@ -7,4 +7,15 @@
     <string name="please_enter_picture_url">Please enter picture URL</string>
     <string name="image_box">Image Box</string>
     <string name="picture_url">Picture URL:</string>
+    <string name="button_flags">Flags</string>
+    <string name="button_animation">animation</string>
+    <string name="text_austria">Austria</string>
+    <string name="text_latvia">Latvia</string>
+    <string name="text_armenia">Armenia</string>
+    <string name="text_belgium">Belgium</string>
+    <string name="text_spain">Spain</string>
+    <string name="text_denmark">Denmark</string>
+    <string name="text_name1">Гомельская область</string>
+    <string name="text_name2">Брестская область</string>
+    <string name="text_name3">Минская область</string>
 </resources>
