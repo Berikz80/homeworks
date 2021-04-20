@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="@dimen/text_size"/>
+
+    <EditText
+        android:id="@+id/input_snowdrop_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Snowdrop name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/height_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Height = 20 cm"
+        android:textSize="@dimen/text_size"/>
+
+    <SeekBar
+        android:id="@+id/height_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:max="50"
+        android:min="10"
+        android:progress="20" />
+
+    <Button
+        android:id="@+id/button_save_snowdrop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="save"
+        android:textSize="@dimen/button_text_size" />
+
+
+</LinearLayout>
