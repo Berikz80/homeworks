@@ -35,13 +35,13 @@ class AddSnowdropFragment : Fragment() {
         val radioGroupColor = view.findViewById<RadioGroup>(R.id.input_snowdrop_color)
         val radioGroupImage = view.findViewById<RadioGroup>(R.id.input_snowdrop_image)
 
-        var currentColor : Drawable? = null
+        var currentColor: Drawable? = null
         radioGroupColor.setOnCheckedChangeListener { _, checkedId ->
             view.findViewById<RadioButton>(checkedId)?.apply {
                 currentColor = background
             }
         }
-        var currentImage : Drawable? = null
+        var currentImage: Drawable? = null
         radioGroupImage.setOnCheckedChangeListener { _, checkedId ->
             view.findViewById<RadioButton>(checkedId)?.apply {
                 currentImage = background
@@ -63,22 +63,37 @@ class AddSnowdropFragment : Fragment() {
         )
 
         buttonSave.setOnClickListener {
-            if (viewModel.snowdrops.add(
-                    MutableLiveData(
-                        Snowdrop(
-                            name = inputName.text.toString(),
-                            image = currentImage,
-                            color = currentColor,
-                            height = inputHeight.progress
+            var allCorrect = true
+            if (inputName.text.toString() == "") {
+                Toast.makeText(context, "Enter name", Toast.LENGTH_SHORT).show()
+                allCorrect = false
+            }
+            if (currentColor == null) {
+                Toast.makeText(context, "Choose color", Toast.LENGTH_SHORT).show()
+                allCorrect = false
+            }
+            if (currentImage == null) {
+                Toast.makeText(context, "Choose image", Toast.LENGTH_SHORT).show()
+                allCorrect = false
+            }
+
+            if (allCorrect)
+                if (viewModel.snowdrops.add(
+                        MutableLiveData(
+                            Snowdrop(
+                                name = inputName.text.toString(),
+                                image = currentImage,
+                                color = currentColor,
+                                height = inputHeight.progress
+                            )
                         )
                     )
-                )
-            ) Toast.makeText(
-                context,
-                "Snowdrop \'${inputName.text.toString()}\' added",
-                Toast.LENGTH_SHORT
-            ).show()
-            else Toast.makeText(context, "Error adding snowdrop", Toast.LENGTH_SHORT).show()
+                ) Toast.makeText(
+                    context,
+                    "Snowdrop \'${inputName.text.toString()}\' added",
+                    Toast.LENGTH_SHORT
+                ).show()
+                else Toast.makeText(context, "Error adding snowdrop", Toast.LENGTH_SHORT).show()
 
         }
 
