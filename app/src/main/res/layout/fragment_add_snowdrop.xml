@@ -71,43 +71,75 @@
                 android:id="@+id/radio_red"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
                 android:layout_weight="1"
                 android:background="#E91E63"
-                android:checked="true" />
+                android:checked="true"
+                android:text="@string/red" />
 
             <RadioButton
                 android:id="@+id/radio_blue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
+                android:layout_marginLeft="@dimen/margin"
                 android:layout_weight="1"
-                android:background="#00BCD4" />
+                android:background="#00BCD4"
+                android:text="@string/blue" />
 
             <RadioButton
-                android:id="@+id/radio_green"
+                android:id="@+id/radio_white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
+                android:layout_marginLeft="@dimen/margin"
                 android:layout_weight="1"
-                android:background="#8BC34A" />
-
-            <RadioButton
-                android:id="@+id/radio_gray"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:layout_weight="1"
-                android:background="#DDDCDC" />
+                android:background="#FFFFFF"
+                android:text="@string/white" />
         </RadioGroup>
 
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Image"
+        android:textSize="@dimen/text_size" />
+
+    <RadioGroup
+        android:id="@+id/input_snowdrop_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/red"
+            android:checked="true"
+            android:hint="1" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_weight="1"
+            android:background="@drawable/blue"
+            android:hint="1" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_weight="1"
+            android:background="#8BC34A"
+            android:hint="1" />
+    </RadioGroup>
+
     <Button
         android:id="@+id/button_save_snowdrop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/double_margin"
         android:text="save"
         android:textSize="@dimen/button_text_size" />
 

@@ -19,4 +19,8 @@
     <string name="text_name2">Брестская область</string>
     <string name="text_name3">Минская область</string>
     <string name="dz4">homework4</string>
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="green">Green</string>
+    <string name="white">White</string>
 </resources>
