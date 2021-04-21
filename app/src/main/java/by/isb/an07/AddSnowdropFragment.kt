@@ -4,13 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.SeekBar
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModelProvider
 
-class AddSnowdropFragment:Fragment() {
+
+class AddSnowdropFragment : Fragment() {
+
+    lateinit var viewModel: HW4ViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,14 +25,27 @@ class AddSnowdropFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val inputName = view.findViewById<EditText>(R.id.edit_name)
-//        val inputAge = view.findViewById<EditText>(R.id.edit_age)
-        val heightText = view.findViewById<TextView>(R.id.height_text)
-        val heightBar = view.findViewById<SeekBar>(R.id.height_bar)
+        viewModel = ViewModelProvider(requireActivity()).get(HW4ViewModel::class.java)
 
-        heightBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        val inputName = view.findViewById<EditText>(R.id.input_snowdrop_name)
+        val inputHeight = view.findViewById<SeekBar>(R.id.input_snowdrop_height)
+        val heightText = view.findViewById<TextView>(R.id.height_text)
+        val buttonSave = view.findViewById<Button>(R.id.button_save_snowdrop)
+        val radioGroup = view.findViewById<RadioGroup>(R.id.input_snowdrop_color)
+
+        var currentColor = ""
+
+        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            view.findViewById<RadioButton>(checkedId)?.apply {
+                currentColor = text.toString()
+            }
+        }
+
+
+
+        inputHeight.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                heightText.text = "Height = $progress cm"
+                heightText.text = "$progress cm"
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -40,11 +55,25 @@ class AddSnowdropFragment:Fragment() {
             }
 
         }
-
         )
 
-       val buttonSave = view.findViewById<Button>(R.id.button_save_snowdrop)
         buttonSave.setOnClickListener {
+            if (viewModel.Snowdrops.add(
+                    MutableLiveData(
+                        Snowdrop(
+                            name = inputName.toString(),
+                            image = "",
+                            color = currentColor,
+                            height = inputHeight.progress
+                        )
+                    )
+                )
+            ) Toast.makeText(
+                context,
+                "Snowdrop \'${inputName.toString()}\' added",
+                Toast.LENGTH_SHORT
+            ).show()
+            else Toast.makeText(context, "Error adding snowdrop", Toast.LENGTH_SHORT).show()
 
         }
 
