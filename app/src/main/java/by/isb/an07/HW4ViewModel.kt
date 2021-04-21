@@ -5,6 +5,6 @@ import androidx.lifecycle.ViewModel
 
 class HW4ViewModel : ViewModel() {
 
-    val Snowdrops = ArrayList<MutableLiveData<Snowdrop>>()
+    val snowdrops = ArrayList<MutableLiveData<Snowdrop>>()
 
 }

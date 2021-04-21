@@ -4,23 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/snowdrop">
+    android:background="@drawable/bg">
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_add_snowdrop"
+        app:layout_constraintBottom_toTopOf="@+id/button_show_snowdrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="@dimen/double_margin"/>
+        app:layout_constraintTop_toTopOf="parent">
 
+        <LinearLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/double_margin"
+            android:orientation="vertical"/>
+    </ScrollView>
     <Button
         android:id="@+id/button_add_snowdrop"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="add"
+        android:textSize="@dimen/button_text_size"
         android:layout_margin="@dimen/margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_show_snowdrop"
@@ -29,9 +35,10 @@
 
     <Button
         android:id="@+id/button_show_snowdrop"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin"
+        android:textSize="@dimen/button_text_size"
 
         android:text="show"
         app:layout_constraintBottom_toBottomOf="parent"

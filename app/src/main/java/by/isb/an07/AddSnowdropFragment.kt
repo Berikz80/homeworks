@@ -1,5 +1,6 @@
 package by.isb.an07
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,17 +35,16 @@ class AddSnowdropFragment : Fragment() {
         val radioGroupColor = view.findViewById<RadioGroup>(R.id.input_snowdrop_color)
         val radioGroupImage = view.findViewById<RadioGroup>(R.id.input_snowdrop_image)
 
-        var currentColor = ""
-
+        var currentColor : Drawable? = null
         radioGroupColor.setOnCheckedChangeListener { _, checkedId ->
             view.findViewById<RadioButton>(checkedId)?.apply {
-                currentColor = text.toString()
+                currentColor = background
             }
         }
-        var currentImage = ""
+        var currentImage : Drawable? = null
         radioGroupImage.setOnCheckedChangeListener { _, checkedId ->
             view.findViewById<RadioButton>(checkedId)?.apply {
-                currentImage = background.toString()
+                currentImage = background
             }
         }
 
@@ -63,11 +63,11 @@ class AddSnowdropFragment : Fragment() {
         )
 
         buttonSave.setOnClickListener {
-            if (viewModel.Snowdrops.add(
+            if (viewModel.snowdrops.add(
                     MutableLiveData(
                         Snowdrop(
-                            name = inputName.toString(),
-                            image = "",
+                            name = inputName.text.toString(),
+                            image = currentImage,
                             color = currentColor,
                             height = inputHeight.progress
                         )
@@ -75,7 +75,7 @@ class AddSnowdropFragment : Fragment() {
                 )
             ) Toast.makeText(
                 context,
-                "Snowdrop \'${inputName.toString()}\' added",
+                "Snowdrop \'${inputName.text.toString()}\' added",
                 Toast.LENGTH_SHORT
             ).show()
             else Toast.makeText(context, "Error adding snowdrop", Toast.LENGTH_SHORT).show()

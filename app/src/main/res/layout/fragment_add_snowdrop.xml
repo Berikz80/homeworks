@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/margin"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#C5BEBE">
 
 
     <TextView
@@ -69,7 +70,8 @@
                 android:layout_weight="1"
                 android:background="#E91E63"
                 android:checked="true"
-                android:text="@string/red" />
+                android:text="@string/red"
+       />
 
             <RadioButton
                 android:id="@+id/radio_blue"
@@ -78,7 +80,8 @@
                 android:layout_marginLeft="@dimen/margin"
                 android:layout_weight="1"
                 android:background="#00BCD4"
-                android:text="@string/blue" />
+                android:text="@string/blue"
+          />
 
             <RadioButton
                 android:id="@+id/radio_white"
@@ -87,7 +90,8 @@
                 android:layout_marginLeft="@dimen/margin"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
-                android:text="@string/white" />
+                android:text="@string/white"
+      />
         </RadioGroup>
 
     <TextView
