@@ -31,17 +31,22 @@ class AddSnowdropFragment : Fragment() {
         val inputHeight = view.findViewById<SeekBar>(R.id.input_snowdrop_height)
         val heightText = view.findViewById<TextView>(R.id.height_text)
         val buttonSave = view.findViewById<Button>(R.id.button_save_snowdrop)
-        val radioGroup = view.findViewById<RadioGroup>(R.id.input_snowdrop_color)
+        val radioGroupColor = view.findViewById<RadioGroup>(R.id.input_snowdrop_color)
+        val radioGroupImage = view.findViewById<RadioGroup>(R.id.input_snowdrop_image)
 
         var currentColor = ""
 
-        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+        radioGroupColor.setOnCheckedChangeListener { _, checkedId ->
             view.findViewById<RadioButton>(checkedId)?.apply {
                 currentColor = text.toString()
             }
         }
-
-
+        var currentImage = ""
+        radioGroupImage.setOnCheckedChangeListener { _, checkedId ->
+            view.findViewById<RadioButton>(checkedId)?.apply {
+                currentImage = background.toString()
+            }
+        }
 
         inputHeight.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {

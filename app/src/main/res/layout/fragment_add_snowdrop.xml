@@ -56,12 +56,7 @@
         android:text="Color"
         android:textSize="@dimen/text_size" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioGroup
+            <RadioGroup
             android:id="@+id/input_snowdrop_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,9 +90,6 @@
                 android:text="@string/white" />
         </RadioGroup>
 
-
-    </LinearLayout>
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -107,32 +99,35 @@
     <RadioGroup
         android:id="@+id/input_snowdrop_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:orientation="horizontal">
 
         <RadioButton
+            android:id="@+id/image_red"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/red"
             android:checked="true"
-            android:hint="1" />
+            />
 
         <RadioButton
+            android:id="@+id/image_blue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin"
             android:layout_weight="1"
             android:background="@drawable/blue"
-            android:hint="1" />
+         />
 
         <RadioButton
+            android:id="@+id/image_white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin"
             android:layout_weight="1"
-            android:background="#8BC34A"
-            android:hint="1" />
+            android:background="@drawable/white"
+           />
     </RadioGroup>
 
     <Button

@@ -19,11 +19,19 @@ class HW4Activity : AppCompatActivity() {
         val buttonShow = findViewById<Button>(R.id.button_show_snowdrop)
 
         val addSnowdropFragment = AddSnowdropFragment()
+        val showSnowdropFragment = ShowSnowdropFragment()
 
         buttonAdd.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.fragment_container, addSnowdropFragment)
+                .commit()
+        }
+
+        buttonShow.setOnClickListener {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container, showSnowdropFragment)
                 .commit()
         }
     }
