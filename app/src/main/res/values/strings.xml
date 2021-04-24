@@ -26,4 +26,6 @@
     <string name="dz5">homework5</string>
     <string name="login">Login</string>
     <string name="password_text">Password</string>
+    <string name="password_mim">Password must be at least 8 characters</string>
+    <string name="login_empty">Login cannot be empty</string>
 </resources>
