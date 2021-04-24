@@ -23,4 +23,7 @@
     <string name="blue">Blue</string>
     <string name="green">Green</string>
     <string name="white">White</string>
+    <string name="dz5">homework5</string>
+    <string name="login">Login</string>
+    <string name="password_text">Password</string>
 </resources>
