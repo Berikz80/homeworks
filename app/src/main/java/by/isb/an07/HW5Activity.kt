@@ -5,6 +5,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
+import androidx.lifecycle.ViewModelProvider
 
 class HW5Activity : AppCompatActivity() {
 
@@ -19,8 +20,18 @@ class HW5Activity : AppCompatActivity() {
         val loginInputLayout = findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.input_login_layout)
 
         loginButton.setOnClickListener {
-            if (loginInput.text.isEmpty()) loginInputLayout.error = getString(R.string.login_empty)
-            if (loginPassword.text.length<8) loginPasswordLayout.error = getString(R.string.password_mim)
+            var hasError = false
+            if (loginInput.text.isEmpty()) {
+                loginInputLayout.error = getString(R.string.login_empty)
+                hasError = true
+            }
+            if (loginPassword.text.length<8) {
+                loginPasswordLayout.error = getString(R.string.password_mim)
+                hasError = true
+            }
+            if (!hasError) {
+                LoginDialogFragment().show(supportFragmentManager,LoginDialogFragment.TAG)
+            }
         }
 
         loginPassword.doOnTextChanged { text, start, before, count ->
