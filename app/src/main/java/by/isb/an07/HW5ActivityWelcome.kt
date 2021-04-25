@@ -11,6 +11,6 @@ class HW5ActivityWelcome : AppCompatActivity() {
 
         val textName = findViewById<TextView>(R.id.welcome_user)
 
-        textName.text = intent.getStringExtra("name")
+        textName.text = getString(R.string.welcome_string)+intent.getStringExtra("NAME")
     }
 }
