@@ -25,5 +25,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.hw4_button).setOnClickListener {
             startActivity(Intent(this,HW4Activity::class.java))
         }
+
+        findViewById<Button>(R.id.hw5_button).setOnClickListener {
+            startActivity(Intent(this,HW5Activity::class.java))
+        }
     }
 }
