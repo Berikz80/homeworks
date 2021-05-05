@@ -22,9 +22,11 @@ class CardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         view.findViewById<ImageView>(R.id.image_orden)
             .startAnimation(AnimationUtils.loadAnimation(context, R.anim.large_small))
+
+        view.findViewById<ImageView>(R.id.image_9may)
+            .startAnimation(AnimationUtils.loadAnimation(context, R.anim.blink))
 
     }
 
