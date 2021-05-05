@@ -9,10 +9,14 @@
         android:id="@+id/HW6Fragment"
         android:name="by.isb.an07.HW6Fragment"
         android:label="fragment_hw6"
-        tools:layout="@layout/fragment_hw6" >
+        tools:layout="@layout/fragment_hw6">
         <action
-            android:id="@+id/action_HW6Fragment_to_cardFragment"
-            app:destination="@id/cardFragment" />
+            android:id="@+id/show_cardFragment"
+            app:destination="@id/cardFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/cardFragment"
