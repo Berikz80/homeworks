@@ -17,7 +17,7 @@ class ProductRepository(
         }
     }
 
-    suspend fun loadAllPerson(): List<Product> {
+    suspend fun loadAllProduct(): List<Product> {
         return ioScope.async { dao.getAll() }.await()
     }
 }

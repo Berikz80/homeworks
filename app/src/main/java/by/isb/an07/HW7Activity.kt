@@ -14,14 +14,13 @@ class HW7Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hw7)
 
-        viewModel = ViewModelProvider(this).get(HW7ViewModel::class.java)
-
-        val recycler = findViewById<RecyclerView>(R.id.recycler)
+        viewModel = ViewModelProvider.AndroidViewModelFactory(application).create(HW7ViewModel::class.java)
 
         // load to products
 
-        val productsAdapter = ProductAdapter(viewModel.productList)
+        val productsAdapter = viewModel.productList.value?.let { ProductAdapter(it) }
 
+        val recycler = findViewById<RecyclerView>(R.id.recycler)
         recycler.adapter = productsAdapter
 
     }
