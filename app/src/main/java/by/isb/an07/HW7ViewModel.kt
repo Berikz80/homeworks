@@ -23,7 +23,7 @@ class HW7ViewModel(application: Application) : ViewModel() {
         productRepository.insert(product)
     }
 
-    fun loadAllPerson() {
+    fun loadAllProduct() {
         ioScope.launch {
             val personList = productRepository.loadAllProduct()
             _productList.postValue(personList)
