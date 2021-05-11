@@ -33,4 +33,7 @@
     <string name="show_card">show card</string>
     <string name="dz7">hw7: database</string>
     <string name="find_product">Find product</string>
+    <string name="delete">delete</string>
+    <string name="duplicate">duplicate</string>
+    <string name="add">add</string>
 </resources>

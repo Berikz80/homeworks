@@ -12,6 +12,16 @@
         android:layout_height="match_parent"
         android:background="?attr/selectableItemBackground">
 
+        <ImageButton
+            android:id="@+id/card_button_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_dots"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@null"
+            android:layout_margin="8dp"/>
+
         <ImageView
             android:id="@+id/item_image"
             android:layout_width="50dp"
