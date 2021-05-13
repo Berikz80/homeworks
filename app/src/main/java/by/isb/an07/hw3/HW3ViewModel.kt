@@ -1,13 +1,10 @@
-package by.isb.an07
+package by.isb.an07.hw3
 
-import android.content.Context
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.security.AccessController.getContext
 import java.util.*
 import kotlin.random.Random
 

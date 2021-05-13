@@ -1,6 +1,5 @@
-package by.isb.an07
+package by.isb.an07.hw4
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +9,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import by.isb.an07.R
 
 class ShowSnowdropFragment(private val index : Int) : Fragment() {
 

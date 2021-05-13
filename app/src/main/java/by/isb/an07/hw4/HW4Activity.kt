@@ -1,10 +1,11 @@
-package by.isb.an07
+package by.isb.an07.hw4
 
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import by.isb.an07.R
 
 class HW4Activity : AppCompatActivity() {
 

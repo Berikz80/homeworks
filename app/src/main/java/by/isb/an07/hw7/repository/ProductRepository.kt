@@ -1,4 +1,4 @@
-package by.isb.an07.repository
+package by.isb.an07.hw7.repository
 
 import by.isb.an07.database.ProductDatabase
 import by.isb.an07.database.entity.Product

@@ -1,4 +1,4 @@
-package by.isb.an07.recycler
+package by.isb.an07.hw7.recycler
 
 import android.view.LayoutInflater
 import android.view.MenuInflater

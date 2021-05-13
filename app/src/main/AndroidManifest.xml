@@ -11,16 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AN07">
-        <activity android:name=".HW7Activity" />
-        <activity android:name=".HW6Activity" />
-        <activity android:name=".HW1Activity" />
-        <activity android:name=".HW2Activity" />
-        <activity android:name=".HW3Activity" />
-        <activity android:name=".HW4Activity" />
-        <activity android:name=".HW5Activity" />
-        <activity android:name=".HW5ActivityWelcome" />
-        <activity android:name=".FlagsActivity" />
-        <activity android:name=".AnimationActivity" />
+        <activity android:name=".hw7.HW7Activity" />
+        <activity android:name=".hw6.HW6Activity" />
+        <activity android:name=".hw1.HW1Activity" />
+        <activity android:name=".hw2.HW2Activity" />
+        <activity android:name=".hw3.HW3Activity" />
+        <activity android:name=".hw4.HW4Activity" />
+        <activity android:name=".hw5.HW5Activity" />
+        <activity android:name=".hw5.HW5ActivityWelcome" />
+        <activity android:name=".hw2.FlagsActivity" />
+        <activity android:name=".hw2.AnimationActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

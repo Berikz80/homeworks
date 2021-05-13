@@ -1,10 +1,11 @@
-package by.isb.an07
+package by.isb.an07.hw3
 
 import android.os.Bundle
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import by.isb.an07.R
 import kotlinx.android.synthetic.main.activity_hw3.*
 
 

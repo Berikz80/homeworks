@@ -1,4 +1,4 @@
-package by.isb.an07
+package by.isb.an07.hw4
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
+import by.isb.an07.R
 
 
 class AddSnowdropFragment : Fragment() {

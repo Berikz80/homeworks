@@ -1,4 +1,4 @@
-package by.isb.an07
+package by.isb.an07.hw1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import by.isb.an07.R
 import com.squareup.picasso.Picasso
 
 class HW1Activity : AppCompatActivity() {

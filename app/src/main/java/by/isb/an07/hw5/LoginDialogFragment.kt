@@ -1,4 +1,4 @@
-package by.isb.an07
+package by.isb.an07.hw5
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -6,8 +6,8 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
+import by.isb.an07.R
 import com.google.android.material.textfield.TextInputEditText
-import kotlinx.android.synthetic.main.activity_hw5.*
 
 class LoginDialogFragment : DialogFragment() {
 
@@ -26,7 +26,7 @@ class LoginDialogFragment : DialogFragment() {
             .setNegativeButton("Login") { dialogInterface: DialogInterface, i: Int ->
 
                 val nameUser = requireActivity().findViewById<TextInputEditText>(R.id.input_login)
-                val intent = Intent(context,HW5ActivityWelcome::class.java)
+                val intent = Intent(context, HW5ActivityWelcome::class.java)
                 intent.putExtra("NAME",nameUser.text.toString())
                 startActivity(intent)
             }

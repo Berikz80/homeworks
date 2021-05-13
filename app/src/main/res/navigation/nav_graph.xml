@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/HW6Fragment"
-        android:name="by.isb.an07.HW6Fragment"
+        android:name="by.isb.an07.hw6.HW6Fragment"
         android:label="fragment_hw6"
         tools:layout="@layout/fragment_hw6">
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/cardFragment"
-        android:name="by.isb.an07.CardFragment"
+        android:name="by.isb.an07.hw6.CardFragment"
         android:label="fragment_card"
         tools:layout="@layout/fragment_card" />
 </navigation>

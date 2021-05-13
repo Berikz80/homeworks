@@ -1,4 +1,4 @@
-package by.isb.an07
+package by.isb.an07.hw7
 
 import android.app.Dialog
 import android.content.DialogInterface
@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
+import by.isb.an07.R
 import by.isb.an07.database.entity.Product
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout

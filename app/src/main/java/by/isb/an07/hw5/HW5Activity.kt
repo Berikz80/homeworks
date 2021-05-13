@@ -1,11 +1,11 @@
-package by.isb.an07
+package by.isb.an07.hw5
 
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
-import androidx.lifecycle.ViewModelProvider
+import by.isb.an07.R
 
 class HW5Activity : AppCompatActivity() {
 
@@ -16,7 +16,9 @@ class HW5Activity : AppCompatActivity() {
         val loginButton = findViewById<Button>(R.id.login_button)
         val loginInput = findViewById<EditText>(R.id.input_login)
         val loginPassword = findViewById<EditText>(R.id.input_password)
-        val loginPasswordLayout = findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.input_password_layout)
+        val loginPasswordLayout = findViewById<com.google.android.material.textfield.TextInputLayout>(
+            R.id.input_password_layout
+        )
         val loginInputLayout = findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.input_login_layout)
 
         loginButton.setOnClickListener {
@@ -30,7 +32,7 @@ class HW5Activity : AppCompatActivity() {
                 hasError = true
             }
             if (!hasError) {
-                LoginDialogFragment().show(supportFragmentManager,LoginDialogFragment.TAG)
+                LoginDialogFragment().show(supportFragmentManager, LoginDialogFragment.TAG)
             }
         }
 
