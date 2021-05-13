@@ -48,6 +48,5 @@ class HW3ViewModel : ViewModel() {
             }
         }, 1, 3000)
     }
-
 }
 

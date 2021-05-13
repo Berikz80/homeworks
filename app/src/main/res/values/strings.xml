@@ -18,4 +18,17 @@
     <string name="text_name1">Гомельская область</string>
     <string name="text_name2">Брестская область</string>
     <string name="text_name3">Минская область</string>
+    <string name="dz4">homework4</string>
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="green">Green</string>
+    <string name="white">White</string>
+    <string name="dz5">homework5</string>
+    <string name="login">Login</string>
+    <string name="password_text">Password</string>
+    <string name="password_mim">Password must be at least 8 characters</string>
+    <string name="login_empty">Login cannot be empty</string>
+    <string name="welcome_string">"Welcome, "</string>
+    <string name="dz6">homework6</string>
+    <string name="show_card">show card</string>
 </resources>

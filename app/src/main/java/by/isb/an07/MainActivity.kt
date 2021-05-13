@@ -17,8 +17,21 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.hw2_button).setOnClickListener {
             startActivity(Intent(this,HW2Activity::class.java))
         }
+
         findViewById<Button>(R.id.hw3_button).setOnClickListener {
             startActivity(Intent(this,HW3Activity::class.java))
+        }
+
+        findViewById<Button>(R.id.hw4_button).setOnClickListener {
+            startActivity(Intent(this,HW4Activity::class.java))
+        }
+
+        findViewById<Button>(R.id.hw5_button).setOnClickListener {
+            startActivity(Intent(this,HW5Activity::class.java))
+        }
+
+        findViewById<Button>(R.id.hw6_button).setOnClickListener {
+            startActivity(Intent(this,HW6Activity::class.java))
         }
     }
 }

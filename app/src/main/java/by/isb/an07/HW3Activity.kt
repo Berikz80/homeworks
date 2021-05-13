@@ -3,7 +3,6 @@ package by.isb.an07
 import android.os.Bundle
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_hw3.*
@@ -27,9 +26,8 @@ class HW3Activity : AppCompatActivity() {
 
         viewModel.isStop.observe(this){
 
-
             if (it) {
-                val dialog = CustomDialogFragment("Победитель: " + viewModel.myRegions[viewModel.winner].value?.name.toString())
+                val dialog = FinishDialogFragment("Победитель: " + viewModel.myRegions[viewModel.winner].value?.name.toString())
                 dialog.show(supportFragmentManager, "custom")
             }
         }
