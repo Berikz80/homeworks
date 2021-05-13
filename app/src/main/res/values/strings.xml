@@ -39,4 +39,5 @@
     <string name="name">Name</string>
     <string name="image_url">Image URL</string>
     <string name="price">Price</string>
+    <string name="dz8">hw8: retrofit</string>
 </resources>

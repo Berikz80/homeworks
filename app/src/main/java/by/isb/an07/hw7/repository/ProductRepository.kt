@@ -1,7 +1,7 @@
 package by.isb.an07.hw7.repository
 
-import by.isb.an07.database.ProductDatabase
-import by.isb.an07.database.entity.Product
+import by.isb.an07.hw7.database.ProductDatabase
+import by.isb.an07.hw7.database.entity.Product
 import kotlinx.coroutines.*
 
 class ProductRepository(

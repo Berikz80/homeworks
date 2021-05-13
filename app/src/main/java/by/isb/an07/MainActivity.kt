@@ -11,6 +11,7 @@ import by.isb.an07.hw4.HW4Activity
 import by.isb.an07.hw5.HW5Activity
 import by.isb.an07.hw6.HW6Activity
 import by.isb.an07.hw7.HW7Activity
+import by.isb.an07.hw8.HW8Activity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +44,10 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.hw7_button).setOnClickListener {
             startActivity(Intent(this, HW7Activity::class.java))
+        }
+
+        findViewById<Button>(R.id.hw8_button).setOnClickListener {
+            startActivity(Intent(this, HW8Activity::class.java))
         }
     }
 }
