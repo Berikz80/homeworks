@@ -36,4 +36,7 @@
     <string name="delete">delete</string>
     <string name="duplicate">duplicate</string>
     <string name="add">add</string>
+    <string name="name">Name</string>
+    <string name="image_url">Image URL</string>
+    <string name="price">Price</string>
 </resources>

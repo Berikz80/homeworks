@@ -22,12 +22,13 @@ class HW7ViewModel(application: Application) : AndroidViewModel(application) {
 
     fun insert(product: Product) {
         productRepository.insert(product)
+        loadAllProduct()
     }
 
     fun loadAllProduct() {
         ioScope.launch {
-            val personList = productRepository.loadAllProduct()
-            _productList.postValue(personList)
+            val productList = productRepository.loadAllProduct()
+            _productList.postValue(productList)
         }
     }
 

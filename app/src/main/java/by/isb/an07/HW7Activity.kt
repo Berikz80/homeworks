@@ -77,6 +77,12 @@ class HW7Activity : AppCompatActivity() {
                 }
             })
 
+        findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.floating_action_button).setOnClickListener {
 
+            AddProductDialog().show(
+                supportFragmentManager,
+                AddProductDialog.TAG
+            )
+        }
     }
 }
