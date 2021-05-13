@@ -1,4 +1,4 @@
-package by.isb.an07
+package by.isb.an07.hw6
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import by.isb.an07.R
 
 class CardFragment : Fragment() {
 

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HW6Fragment">
+    tools:context=".hw6.HW6Fragment">
 
     <Button
         android:id="@+id/button_show_card"

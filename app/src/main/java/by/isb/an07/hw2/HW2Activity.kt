@@ -1,9 +1,10 @@
-package by.isb.an07
+package by.isb.an07.hw2
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import by.isb.an07.R
 
 class HW2Activity : AppCompatActivity() {
 
@@ -16,11 +17,11 @@ class HW2Activity : AppCompatActivity() {
         val buttonAnimation = findViewById<Button>(R.id.button_animation)
 
         buttonFlags.setOnClickListener {
-            startActivity(Intent(this,FlagsActivity::class.java))
+            startActivity(Intent(this, FlagsActivity::class.java))
         }
 
         buttonAnimation.setOnClickListener {
-            startActivity(Intent(this,AnimationActivity::class.java))
+            startActivity(Intent(this, AnimationActivity::class.java))
         }
     }
 }

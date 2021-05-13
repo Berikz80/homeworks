@@ -1,9 +1,10 @@
-package by.isb.an07
+package by.isb.an07.hw2
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import by.isb.an07.R
 
 class AnimationActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package by.isb.an07
+package by.isb.an07.hw6
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import by.isb.an07.R
 
 class HW6Fragment : Fragment() {
 

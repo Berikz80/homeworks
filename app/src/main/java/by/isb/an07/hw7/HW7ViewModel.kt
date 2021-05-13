@@ -1,13 +1,12 @@
-package by.isb.an07
+package by.isb.an07.hw7
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import by.isb.an07.database.ProductDatabase
 import by.isb.an07.database.entity.Product
-import by.isb.an07.repository.ProductRepository
+import by.isb.an07.hw7.repository.ProductRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

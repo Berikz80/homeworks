@@ -1,4 +1,4 @@
-package by.isb.an07
+package by.isb.an07.hw7
 
 import android.os.Bundle
 import android.text.Editable
@@ -7,8 +7,8 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import by.isb.an07.database.entity.Product
-import by.isb.an07.recycler.ProductAdapter
+import by.isb.an07.R
+import by.isb.an07.hw7.recycler.ProductAdapter
 
 
 class HW7Activity : AppCompatActivity() {

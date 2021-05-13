@@ -4,6 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import by.isb.an07.hw1.HW1Activity
+import by.isb.an07.hw2.HW2Activity
+import by.isb.an07.hw3.HW3Activity
+import by.isb.an07.hw4.HW4Activity
+import by.isb.an07.hw5.HW5Activity
+import by.isb.an07.hw6.HW6Activity
+import by.isb.an07.hw7.HW7Activity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

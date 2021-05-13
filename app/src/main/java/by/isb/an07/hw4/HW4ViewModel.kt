@@ -1,4 +1,4 @@
-package by.isb.an07
+package by.isb.an07.hw4
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

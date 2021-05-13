@@ -1,4 +1,4 @@
-package by.isb.an07
+package by.isb.an07.hw3
 
 class Region (
 val name : String,
