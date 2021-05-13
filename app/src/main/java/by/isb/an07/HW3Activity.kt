@@ -26,7 +26,6 @@ class HW3Activity : AppCompatActivity() {
 
         viewModel.isStop.observe(this){
 
-
             if (it) {
                 val dialog = FinishDialogFragment("Победитель: " + viewModel.myRegions[viewModel.winner].value?.name.toString())
                 dialog.show(supportFragmentManager, "custom")

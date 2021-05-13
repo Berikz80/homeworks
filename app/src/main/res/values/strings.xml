@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">AN07</string>
-    <string name="dz1">Homework1</string>
-    <string name="dz2">Homework2</string>
-    <string name="dz3">Homework3</string>
+    <string name="dz1">Hw1: Picture load</string>
+    <string name="dz2">Hw2: Layout&amp;animation</string>
+    <string name="dz3">Hw3: ViewModel</string>
     <string name="show_button">Find&amp;Show</string>
     <string name="please_enter_picture_url">Please enter picture URL</string>
     <string name="image_box">Image Box</string>
@@ -18,15 +18,25 @@
     <string name="text_name1">Гомельская область</string>
     <string name="text_name2">Брестская область</string>
     <string name="text_name3">Минская область</string>
-    <string name="dz4">homework4</string>
+    <string name="dz4">Hw4: Fragments</string>
     <string name="red">Red</string>
     <string name="blue">Blue</string>
     <string name="green">Green</string>
     <string name="white">White</string>
-    <string name="dz5">homework5</string>
+    <string name="dz5">Hw5: Material design</string>
     <string name="login">Login</string>
     <string name="password_text">Password</string>
     <string name="password_mim">Password must be at least 8 characters</string>
     <string name="login_empty">Login cannot be empty</string>
     <string name="welcome_string">"Welcome, "</string>
+    <string name="dz6">Hw6: Anim&amp;Navi</string>
+    <string name="show_card">show card</string>
+    <string name="dz7">hw7: database</string>
+    <string name="find_product">Find product</string>
+    <string name="delete">delete</string>
+    <string name="duplicate">duplicate</string>
+    <string name="add">add</string>
+    <string name="name">Name</string>
+    <string name="image_url">Image URL</string>
+    <string name="price">Price</string>
 </resources>

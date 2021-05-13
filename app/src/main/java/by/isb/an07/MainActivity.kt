@@ -11,23 +11,31 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<Button>(R.id.hw1_button).setOnClickListener {
-            startActivity(Intent(this,HW1Activity::class.java))
+            startActivity(Intent(this, HW1Activity::class.java))
         }
 
         findViewById<Button>(R.id.hw2_button).setOnClickListener {
-            startActivity(Intent(this,HW2Activity::class.java))
+            startActivity(Intent(this, HW2Activity::class.java))
         }
 
         findViewById<Button>(R.id.hw3_button).setOnClickListener {
-            startActivity(Intent(this,HW3Activity::class.java))
+            startActivity(Intent(this, HW3Activity::class.java))
         }
 
         findViewById<Button>(R.id.hw4_button).setOnClickListener {
-            startActivity(Intent(this,HW4Activity::class.java))
+            startActivity(Intent(this, HW4Activity::class.java))
         }
 
         findViewById<Button>(R.id.hw5_button).setOnClickListener {
-            startActivity(Intent(this,HW5Activity::class.java))
+            startActivity(Intent(this, HW5Activity::class.java))
+        }
+
+        findViewById<Button>(R.id.hw6_button).setOnClickListener {
+            startActivity(Intent(this, HW6Activity::class.java))
+        }
+
+        findViewById<Button>(R.id.hw7_button).setOnClickListener {
+            startActivity(Intent(this, HW7Activity::class.java))
         }
     }
 }
