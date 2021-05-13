@@ -31,4 +31,10 @@ class HW7ViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun clearAllProduct() {
+        ioScope.launch {
+            productRepository.clearAllProduct()
+        }
+    }
+
 }

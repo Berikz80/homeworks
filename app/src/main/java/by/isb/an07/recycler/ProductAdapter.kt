@@ -5,6 +5,7 @@ import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import by.isb.an07.R
 import by.isb.an07.database.entity.Product
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.Picasso
 
 
 class ProductAdapter(val products: List<Product>) :
@@ -23,7 +25,9 @@ class ProductAdapter(val products: List<Product>) :
 
             val product = products[position]
 
-//            itemView.findViewById<ImageView>(R.id.item_image).setImageResource(product.image)
+            val imageBox = itemView.findViewById<ImageView>(R.id.item_image)
+            if (product.image.isNotEmpty()) Picasso.get().load(product.image.toString()).into(imageBox)
+
             itemView.findViewById<TextView>(R.id.item_name).text = product.name
             itemView.findViewById<TextView>(R.id.item_price).text = product.price.toString()
             itemView.findViewById<ConstraintLayout>(R.id.item_container).setOnClickListener {

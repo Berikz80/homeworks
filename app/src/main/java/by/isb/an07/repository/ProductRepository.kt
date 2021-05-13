@@ -18,6 +18,14 @@ class ProductRepository(
     }
 
     suspend fun loadAllProduct(): List<Product> {
-        return ioScope.async { dao.getAll() }.await()
+        return ioScope.async {
+            dao.getAll()
+        }.await()
+    }
+
+    fun clearAllProduct() {
+        ioScope.launch {
+            dao.clearAll()
+        }
     }
 }
