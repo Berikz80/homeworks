@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:layout_margin="16dp">
+    android:layout_margin="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/crypto_item_container"
@@ -16,7 +16,7 @@
             android:id="@+id/crypto_button_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_dots"
+            android:src="@drawable/ic_favorite_border"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@null"
@@ -55,6 +55,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/crypto_image"
             tools:text="@tools:sample/lorem/random" />
+
+        <TextView
+            android:id="@+id/crypto_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="-1.0%"
+            app:layout_constraintEnd_toEndOf="@+id/crypto_image"
+            app:layout_constraintStart_toStartOf="@+id/crypto_image"
+            app:layout_constraintTop_toBottomOf="@+id/crypto_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

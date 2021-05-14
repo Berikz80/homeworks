@@ -24,6 +24,7 @@ class HW8ViewModel : ViewModel() {
     private var _sortDir : String = "desc"
     val sortDir : String = _sortDir
 
+    var favCrypto = setOf<String>()
 
     private val _errorBus = MutableLiveData<String>()
     val errorBus: LiveData<String> = _errorBus

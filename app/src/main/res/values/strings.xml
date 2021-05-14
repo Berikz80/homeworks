@@ -46,4 +46,7 @@
     <string name="refresh">Reload</string>
     <string name="content_description_refresh">Refresh</string>
     <string name="sort_direction">Sort direction</string>
+    <string name="sort_by_marketcap">Sort by Market cap</string>
+    <string name="show_favorites">Show favorites</string>
+    <string name="show_fav">Show fav</string>
 </resources>

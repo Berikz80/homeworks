@@ -2,11 +2,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/sort_direction"
-        android:icon="@drawable/ic_sort_desc"
-        android:title="@string/sort_direction"
-        android:contentDescription="@string/sort_direction"
-        app:showAsAction="ifRoom" />
+        android:id="@+id/favorite"
+        android:icon="@drawable/ic_favorite_border"
+        android:title="@string/show_fav"
+        android:contentDescription="@string/show_favorites"
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/search"
@@ -20,5 +20,18 @@
         android:icon="@drawable/ic_refresh"
         android:title="@string/refresh"
         android:contentDescription="@string/content_description_refresh"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/sort_direction"
+        android:icon="@drawable/ic_sort_desc"
+        android:title="@string/sort_direction"
+        android:contentDescription="@string/sort_direction"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/sort_by_marketcap"
+        android:icon="@drawable/ic_sort_desc"
+        android:title="@string/sort_by_marketcap"
         app:showAsAction="ifRoom" />
 </menu>

@@ -9,11 +9,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import by.isb.an07.R
+import by.isb.an07.hw8.HW8ViewModel
 import by.isb.an07.hw8.data.entities.crypto.Crypto
 import com.google.android.material.snackbar.Snackbar
-import com.squareup.picasso.Picasso
 import java.math.RoundingMode
 
 class CryptoAdapter(val cryptos: List<Crypto>) :
@@ -25,8 +26,22 @@ class CryptoAdapter(val cryptos: List<Crypto>) :
 
             val crypto = cryptos[position]
 
+            val cryptoContainer =
+                itemView.findViewById<ConstraintLayout>(R.id.crypto_item_container)
+
             val imageBox = itemView.findViewById<ImageView>(R.id.crypto_image)
-//            if (product.image.isNotEmpty()) Picasso.get().load(product.image.toString()).into(imageBox)
+
+            when {
+                crypto.percentChange1h > 0 -> {
+                    imageBox.setImageResource(R.drawable.ic_trending_up)
+                    cryptoContainer.setBackgroundResource(R.color.green)
+                }
+                crypto.percentChange1h < 0 -> {
+                    imageBox.setImageResource(R.drawable.ic_trending_down)
+                    cryptoContainer.setBackgroundResource(R.color.red)
+                }
+                else -> imageBox.setImageResource(R.drawable.ic_trending_flat)
+            }
 
             itemView.findViewById<TextView>(R.id.crypto_name).text =
                 "${crypto.name} (${crypto.symbol})"
@@ -34,7 +49,10 @@ class CryptoAdapter(val cryptos: List<Crypto>) :
             itemView.findViewById<TextView>(R.id.crypto_price).text =
                 crypto.price.toBigDecimal().setScale(5, RoundingMode.DOWN).toString()
 
-            itemView.findViewById<ConstraintLayout>(R.id.crypto_item_container).setOnClickListener {
+            itemView.findViewById<TextView>(R.id.crypto_percent).text =
+                crypto.percentChange1h.toBigDecimal().setScale(2, RoundingMode.DOWN).toString()+"%"
+
+            cryptoContainer.setOnClickListener {
                 Snackbar.make(view, crypto.name, Snackbar.LENGTH_SHORT).show()
             }
         }
@@ -48,21 +66,13 @@ class CryptoAdapter(val cryptos: List<Crypto>) :
     override fun onBindViewHolder(holder: CryptoViewHolder, position: Int) {
         holder.setData(holder.itemView, position)
 
-        val mImageButton = holder.itemView.findViewById<ImageButton>(R.id.crypto_button_menu)
-        mImageButton.setOnClickListener {
-            showPopupMenu(
-                mImageButton,
-                position
-            )
-        }
-    }
+        val mFavButton = holder.itemView.findViewById<ImageButton>(R.id.crypto_button_menu)
 
-    private fun showPopupMenu(view: View, position: Int) {
-        val popup = PopupMenu(view.context, view)
-        val inflater: MenuInflater = popup.menuInflater
-//        inflater.inflate(R.menu.card_product_menu, popup.menu)
-        //      popup.setOnMenuItemClickListener(MyMenuItemClickListener(position))
-        popup.show()
+        mFavButton.setOnClickListener {
+
+
+
+        }
     }
 
     override fun getItemCount(): Int {
