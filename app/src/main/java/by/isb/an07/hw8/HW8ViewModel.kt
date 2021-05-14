@@ -21,11 +21,15 @@ class HW8ViewModel : ViewModel() {
     private val _errorBus = MutableLiveData<String>()
     val errorBus: LiveData<String> = _errorBus
 
-    fun loadCrypto(sort: String) {
+    private val _loading = MutableLiveData<Boolean>()
+    val loading : LiveData<Boolean> = _loading
 
+    fun loadCrypto(sort: String) {
+        _loading.value = true
         ioScope.launch {
             try {
                 _crypto.postValue(cryptoRepository.loadCrypto(sort))
+                _loading.postValue(false)
             } catch (e: Exception) {
                 _errorBus.postValue(e.message)
             }
