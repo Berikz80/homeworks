@@ -7,7 +7,7 @@ data class CryptoResponse(
     @SerializedName("status")
     val status: Status?,
     @SerializedName("data")
-    val dataIn: List<Data?>?
+    val dataIn: List<Data>
 
 ) {
     data class Data(

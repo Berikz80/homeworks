@@ -21,7 +21,7 @@ class HW8Activity : AppCompatActivity() {
             cryptoText.text = it.toString()
         }
 
-        viewModel.loadCrypto("name")
+        viewModel.loadCrypto("market_cap")
 
         viewModel.errorBus.observe(this) {
             MaterialAlertDialogBuilder(this)

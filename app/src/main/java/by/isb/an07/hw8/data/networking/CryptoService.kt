@@ -11,5 +11,5 @@ interface CryptoService {
     suspend fun loadCrypto(
         @Query("sort")
         sort: String
-    ): Response<List<CryptoResponse>>
+    ): Response<List<CryptoResponse.Data>>
 }

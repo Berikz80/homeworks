@@ -3,7 +3,6 @@ import by.isb.an07.hw8.data.dto.crypto.CryptoResponse
 import by.isb.an07.hw8.data.entities.crypto.Crypto
 import by.isb.an07.hw8.data.mappers.Mapper
 
-
 class CryptoResponseMapper : Mapper<CryptoResponse.Data, Crypto> {
 
     override fun map(from: CryptoResponse.Data): Crypto {
