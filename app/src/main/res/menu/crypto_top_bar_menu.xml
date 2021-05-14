@@ -2,6 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/sort_direction"
+        android:icon="@drawable/ic_sort_desc"
+        android:title="@string/sort_direction"
+        android:contentDescription="@string/sort_direction"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/search"
         android:icon="@drawable/ic_search"
         android:title="@string/search"

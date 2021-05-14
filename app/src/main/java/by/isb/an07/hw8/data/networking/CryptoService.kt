@@ -10,7 +10,9 @@ interface CryptoService {
     @GET("/v1/cryptocurrency/listings/latest")
     suspend fun loadCrypto(
         @Query("sort")
-        sort: String
+        sort: String,
+        @Query("sort_dir")
+        sortDir: String
     ): Response<CryptoResponse>
     //): Response<List<CryptoResponse.Data>>
 }

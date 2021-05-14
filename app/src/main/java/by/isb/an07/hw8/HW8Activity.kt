@@ -28,7 +28,7 @@ class HW8Activity : AppCompatActivity() {
 
         val progressBar = findViewById<ProgressBar>(R.id.progress_bar)
         val recycler = findViewById<RecyclerView>(R.id.recycler_crypto)
-
+        val quickFind = findViewById<EditText>(R.id.quick_find_crypto)
 
         viewModel.crypto.observe(this) {
             val cryptoAdapter = viewModel.crypto.value?.let { CryptoAdapter(it) }
@@ -46,11 +46,11 @@ class HW8Activity : AppCompatActivity() {
             if (it) progressBar.visibility = VISIBLE
             else {
                 progressBar.visibility = GONE
-                Toast.makeText(this, "Cryptos loaded", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Cryptos loaded order by ${viewModel.sort} ${viewModel.sortDir} ", Toast.LENGTH_SHORT).show()
             }
         }
 
-        findViewById<EditText>(R.id.quick_find_crypto).addTextChangedListener(
+        quickFind.addTextChangedListener(
             object : TextWatcher {
                 override fun beforeTextChanged(
                     s: CharSequence?,
@@ -78,18 +78,24 @@ class HW8Activity : AppCompatActivity() {
 
         topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
+                R.id.sort_direction -> {
+                    viewModel.switchSortDirection()
+                 true
+                }
                 R.id.search -> {
+                    if (quickFind.visibility==GONE) quickFind.visibility= VISIBLE
+                    else quickFind.visibility= GONE
                     true
                 }
                 R.id.refresh -> {
-                    viewModel.loadCrypto("market_cap")
+                    viewModel.loadCrypto()
                     true
                 }
                 else -> false
             }
         }
 
-        viewModel.loadCrypto("market_cap")
+        viewModel.loadCrypto()
 
 
     }

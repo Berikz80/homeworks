@@ -18,21 +18,40 @@ class HW8ViewModel : ViewModel() {
     private val _crypto = MutableLiveData<List<Crypto>>()
     val crypto: LiveData<List<Crypto>> = _crypto
 
+    private var _sort : String = "market_cap"
+    val sort : String = _sort
+
+    private var _sortDir : String = "desc"
+    val sortDir : String = _sortDir
+
+
     private val _errorBus = MutableLiveData<String>()
     val errorBus: LiveData<String> = _errorBus
 
     private val _loading = MutableLiveData<Boolean>()
     val loading : LiveData<Boolean> = _loading
 
-    fun loadCrypto(sort: String) {
+    fun loadCrypto() {
         _loading.value = true
         ioScope.launch {
             try {
-                _crypto.postValue(cryptoRepository.loadCrypto(sort))
+                _crypto.postValue(cryptoRepository.loadCrypto(_sort,_sortDir))
                 _loading.postValue(false)
             } catch (e: Exception) {
                 _errorBus.postValue(e.message)
             }
         }
     }
+
+    fun setSort(newSort:String) {
+        _sort = newSort
+        loadCrypto()
+    }
+
+    fun switchSortDirection() {
+        if (_sortDir=="asc") _sortDir="desc"
+        else _sortDir="asc"
+        loadCrypto()
+    }
+
 }

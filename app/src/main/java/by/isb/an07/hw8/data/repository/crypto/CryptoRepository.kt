@@ -9,8 +9,8 @@ class CryptoRepository {
     private val api = CryptoApi.provideRetrofit()
     private val cryptoResponseMapper = CryptoResponseMapper()
 
-    suspend fun loadCrypto(sort: String): List<Crypto> {
-        val response = api.loadCrypto(sort)
+    suspend fun loadCrypto(sort: String, sortDir: String): List<Crypto> {
+        val response = api.loadCrypto(sort,sortDir)
 
         return if (response.isSuccessful) {
             response.body()?.dataIn?.map {

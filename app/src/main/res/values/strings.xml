@@ -43,7 +43,7 @@
     <string name="find_crypto">Find crypto</string>
     <string name="search">Find crypto</string>
     <string name="content_description_search">search crypto</string>
-    <string name="reload">Reload</string>
-    <string name="refresh">refresh</string>
+    <string name="refresh">Reload</string>
     <string name="content_description_refresh">Refresh</string>
+    <string name="sort_direction">Sort direction</string>
 </resources>
