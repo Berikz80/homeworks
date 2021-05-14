@@ -8,7 +8,10 @@ import android.view.View.VISIBLE
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import by.isb.an07.R
+import by.isb.an07.hw7.recycler.ProductAdapter
+import by.isb.an07.hw8.recycler.CryptoAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class HW8Activity : AppCompatActivity() {
@@ -21,9 +24,13 @@ class HW8Activity : AppCompatActivity() {
 
         val cryptoText = findViewById<TextView>(R.id.crypto_text)
         val progressBar = findViewById<ProgressBar>(R.id.progress_bar)
+        val recycler = findViewById<RecyclerView>(R.id.recycler_crypto)
+
 
         viewModel.crypto.observe(this) {
-            cryptoText.text = it.toString()
+//            cryptoText.text = it.toString()
+            val cryptoAdapter = viewModel.crypto.value?.let { CryptoAdapter(it) }
+            recycler.adapter = cryptoAdapter
         }
 
         viewModel.errorBus.observe(this) {
