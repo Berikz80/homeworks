@@ -8,7 +8,7 @@ import retrofit2.http.Query
 interface CryptoService {
 
     @GET("/v1/cryptocurrency/listings/latest")
-    suspend fun loadCryptos(
+    suspend fun loadCrypto(
         @Query("sort")
         sort: String
     ): Response<List<CryptoResponse>>
