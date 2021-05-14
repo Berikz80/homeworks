@@ -1,6 +1,6 @@
 package by.isb.an07.hw8.data.repository.crypto
 
-import CryptoResponseMapper
+import by.isb.an07.hw8.data.mappers.crypto.CryptoResponseMapper
 import by.isb.an07.hw8.data.entities.crypto.Crypto
 import by.isb.an07.hw8.data.networking.crypto.CryptoApi
 

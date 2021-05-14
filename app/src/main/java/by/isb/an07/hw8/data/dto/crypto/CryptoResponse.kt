@@ -4,10 +4,11 @@ package by.isb.an07.hw8.data.dto.crypto
 import com.google.gson.annotations.SerializedName
 
 data class CryptoResponse(
-    @SerializedName("data")
-    val dataIn: Data?,
     @SerializedName("status")
-    val status: Status?
+    val status: Status?,
+    @SerializedName("data")
+    val dataIn: List<Data?>?
+
 ) {
     data class Data(
         @SerializedName("circulating_supply")
