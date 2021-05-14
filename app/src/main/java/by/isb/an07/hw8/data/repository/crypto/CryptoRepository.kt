@@ -13,7 +13,7 @@ class CryptoRepository {
         val response = api.loadCrypto(sort)
 
         return if (response.isSuccessful) {
-            response.body()?.map {
+            response.body()?.dataIn?.map {
                 cryptoResponseMapper.map(it)
             }.orEmpty()
         } else {
