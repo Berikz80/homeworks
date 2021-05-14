@@ -14,8 +14,10 @@ import by.isb.an07.R
 import by.isb.an07.hw8.data.entities.crypto.Crypto
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
+import java.math.RoundingMode
 
-class CryptoAdapter(val cryptos : List<Crypto>) : RecyclerView.Adapter<CryptoAdapter.CryptoViewHolder>(){
+class CryptoAdapter(val cryptos: List<Crypto>) :
+    RecyclerView.Adapter<CryptoAdapter.CryptoViewHolder>() {
 
     inner class CryptoViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
@@ -26,9 +28,13 @@ class CryptoAdapter(val cryptos : List<Crypto>) : RecyclerView.Adapter<CryptoAda
             val imageBox = itemView.findViewById<ImageView>(R.id.crypto_image)
 //            if (product.image.isNotEmpty()) Picasso.get().load(product.image.toString()).into(imageBox)
 
-            itemView.findViewById<TextView>(R.id.crypto_name).text = crypto.name
-            itemView.findViewById<TextView>(R.id.crypto_price).text = crypto.price.toString()
-            itemView.findViewById<ConstraintLayout>(R.id.item_container).setOnClickListener {
+            itemView.findViewById<TextView>(R.id.crypto_name).text =
+                "${crypto.name} (${crypto.symbol})"
+
+            itemView.findViewById<TextView>(R.id.crypto_price).text =
+                crypto.price.toBigDecimal().setScale(5, RoundingMode.DOWN).toString()
+
+            itemView.findViewById<ConstraintLayout>(R.id.crypto_item_container).setOnClickListener {
                 Snackbar.make(view, crypto.name, Snackbar.LENGTH_SHORT).show()
             }
         }
@@ -61,7 +67,6 @@ class CryptoAdapter(val cryptos : List<Crypto>) : RecyclerView.Adapter<CryptoAda
 
     override fun getItemCount(): Int {
         return cryptos.size
-
     }
 
 }
