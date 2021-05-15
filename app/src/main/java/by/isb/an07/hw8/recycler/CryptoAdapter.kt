@@ -36,7 +36,7 @@ class CryptoAdapter(val cryptos: List<Crypto>, val timeRange: Int) :
             } else imageBox.setImageResource(R.drawable.ic_trending_flat)
 
             itemView.findViewById<TextView>(R.id.crypto_name).text =
-                "${crypto.name}"
+                "${crypto.name}, #${crypto.cmcRank.toString()}"
 
             itemView.findViewById<TextView>(R.id.crypto_price).text =
                 "1 ${crypto.symbol} = $${crypto.price.toBigDecimal().setScale(5, RoundingMode.DOWN).toString()}"
