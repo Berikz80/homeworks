@@ -1,13 +1,11 @@
 package by.isb.an07.hw8.recycler
 
 import android.view.LayoutInflater
-import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import by.isb.an07.R
@@ -15,7 +13,7 @@ import by.isb.an07.hw8.data.entities.crypto.Crypto
 import com.google.android.material.snackbar.Snackbar
 import java.math.RoundingMode
 
-class CryptoAdapter(val cryptos: List<Crypto>) :
+class CryptoAdapter(val cryptos: List<Crypto>, val timeRange: Int) :
     RecyclerView.Adapter<CryptoAdapter.CryptoViewHolder>() {
 
     inner class CryptoViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
@@ -29,10 +27,10 @@ class CryptoAdapter(val cryptos: List<Crypto>) :
 
             val imageBox = itemView.findViewById<ImageView>(R.id.crypto_image)
 
-            if (crypto.percentChange1h > 0) {
+            if (crypto.percentChange[timeRange] > 0) {
                 imageBox.setImageResource(R.drawable.ic_trending_up)
                 cryptoContainer.setBackgroundResource(R.color.green)
-            } else if (crypto.percentChange1h < 0) {
+            } else if (crypto.percentChange[timeRange] < 0) {
                 imageBox.setImageResource(R.drawable.ic_trending_down)
                 cryptoContainer.setBackgroundResource(R.color.red)
             } else imageBox.setImageResource(R.drawable.ic_trending_flat)
@@ -44,7 +42,8 @@ class CryptoAdapter(val cryptos: List<Crypto>) :
                 crypto.price.toBigDecimal().setScale(5, RoundingMode.DOWN).toString()
 
             itemView.findViewById<TextView>(R.id.crypto_percent).text =
-                crypto.percentChange1h.toBigDecimal().setScale(2, RoundingMode.DOWN).toString()+"%"
+                crypto.percentChange[timeRange].toBigDecimal().setScale(2, RoundingMode.DOWN)
+                    .toString() + "%"
 
             cryptoContainer.setOnClickListener {
                 Snackbar.make(view, crypto.name, Snackbar.LENGTH_SHORT).show()
@@ -60,10 +59,10 @@ class CryptoAdapter(val cryptos: List<Crypto>) :
     override fun onBindViewHolder(holder: CryptoViewHolder, position: Int) {
         holder.setData(holder.itemView, position)
 
-        val mFavButton = holder.itemView.findViewById<ImageButton>(R.id.crypto_button_menu)
-        mFavButton.setOnClickListener {
+        val favButton = holder.itemView.findViewById<ImageButton>(R.id.crypto_button_menu)
+        favButton.setOnClickListener {
 
-
+            TODO()
 
         }
     }

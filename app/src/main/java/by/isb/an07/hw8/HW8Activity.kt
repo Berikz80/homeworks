@@ -30,7 +30,7 @@ class HW8Activity : AppCompatActivity() {
         val quickFind = findViewById<EditText>(R.id.quick_find_crypto)
 
         viewModel.crypto.observe(this) {
-            val cryptoAdapter = viewModel.crypto.value?.let { CryptoAdapter(it) }
+            val cryptoAdapter = viewModel.crypto.value?.let { CryptoAdapter(it,0) }
             recycler.adapter = cryptoAdapter
         }
 
@@ -65,7 +65,7 @@ class HW8Activity : AppCompatActivity() {
                 override fun afterTextChanged(s: Editable) {
                     val cryptoAdapter = viewModel.crypto.value?.filter {
                         it.name.contains(s, true) || it.symbol.contains(s, true)
-                    }?.let { CryptoAdapter(it) }
+                    }?.let { CryptoAdapter(it,0) }
                     recycler.adapter = cryptoAdapter
                 }
 
