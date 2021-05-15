@@ -36,10 +36,10 @@ class CryptoAdapter(val cryptos: List<Crypto>, val timeRange: Int) :
             } else imageBox.setImageResource(R.drawable.ic_trending_flat)
 
             itemView.findViewById<TextView>(R.id.crypto_name).text =
-                "${crypto.name} (${crypto.symbol})"
+                "${crypto.name}"
 
             itemView.findViewById<TextView>(R.id.crypto_price).text =
-                crypto.price.toBigDecimal().setScale(5, RoundingMode.DOWN).toString()
+                "1 ${crypto.symbol} = $${crypto.price.toBigDecimal().setScale(5, RoundingMode.DOWN).toString()}"
 
             itemView.findViewById<TextView>(R.id.crypto_percent).text =
                 crypto.percentChange[timeRange].toBigDecimal().setScale(2, RoundingMode.DOWN)

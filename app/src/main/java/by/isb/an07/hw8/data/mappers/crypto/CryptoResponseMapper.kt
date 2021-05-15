@@ -26,6 +26,7 @@ class CryptoResponseMapper : Mapper<CryptoResponse.Data, Crypto> {
             maxSupply = from.maxSupply ?: 0.0,
             name = from.name.orEmpty(),
             numMarketPairs = from.numMarketPairs ?: 0,
+            marketCap = from.quote?.usd?.marketCap ?: 0.0,
             slug = from.slug.orEmpty(),
             symbol = from.symbol.orEmpty(),
             totalSupply = from.totalSupply ?: 0.0,

@@ -24,10 +24,11 @@ class HW8ViewModel : ViewModel() {
     private var _sortDir: String = "desc"
     val sortDir: String = _sortDir
 
-    private var _timeRange: Int = 0
-    val timeRange: Int = _timeRange
+    private var _filter = MutableLiveData<String>("")
+    val filter: LiveData<String> = _filter
 
-    var favCrypto = setOf<String>()
+    private var _timeRange = MutableLiveData<Int>(0)
+    val timeRange: LiveData<Int> = _timeRange
 
     private val _errorBus = MutableLiveData<String>()
     val errorBus: LiveData<String> = _errorBus
@@ -52,10 +53,23 @@ class HW8ViewModel : ViewModel() {
         }
     }
 
+    fun setSort(newSort:String) {
+        _sort = newSort
+        loadCrypto()
+    }
+
     fun switchSortDirection() {
         if (_sortDir == "asc") _sortDir = "desc"
         else _sortDir = "asc"
         loadCrypto()
+    }
+
+    fun setTimeRange(timeRange:Int) {
+        _timeRange.value = timeRange
+    }
+
+    fun setFilter(newFilter:String) {
+        _filter.value = newFilter
     }
 
 }

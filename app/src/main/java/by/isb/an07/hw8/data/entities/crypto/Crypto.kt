@@ -14,7 +14,7 @@ data class Crypto(
     val symbol: String,
 //    val tags: List<String>,
     val totalSupply: Double,
-//    val marketCap: Double,
+    val marketCap: Double,
     val percentChange: Array<Double>,
     val price: Double,
     val volume24h: Double

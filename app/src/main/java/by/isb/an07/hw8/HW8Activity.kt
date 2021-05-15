@@ -14,10 +14,14 @@ import androidx.recyclerview.widget.RecyclerView
 import by.isb.an07.R
 import by.isb.an07.hw8.recycler.CryptoAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.slider.RangeSlider
+import kotlin.math.roundToInt
 
 class HW8Activity : AppCompatActivity() {
 
-       private val viewModel by lazy { ViewModelProvider(this).get(HW8ViewModel::class.java) }
+    private val viewModel by lazy { ViewModelProvider(this).get(HW8ViewModel::class.java) }
+
+    val times = arrayOf("1h", "24h", "7d", "30d", "60d", "90d")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,8 +31,8 @@ class HW8Activity : AppCompatActivity() {
         val recycler = findViewById<RecyclerView>(R.id.recycler_crypto)
         val quickFind = findViewById<EditText>(R.id.quick_find_crypto)
 
-           viewModel.crypto.observe(this) {
-            val cryptoAdapter = viewModel.crypto.value?.let { CryptoAdapter(it,0) }
+        viewModel.crypto.observe(this) {
+            val cryptoAdapter = viewModel.crypto.value?.let { CryptoAdapter(it, 0) }
             recycler.adapter = cryptoAdapter
         }
 
@@ -43,11 +47,17 @@ class HW8Activity : AppCompatActivity() {
             if (it) progressBar.visibility = VISIBLE
             else {
                 progressBar.visibility = GONE
-                Toast.makeText(this, "Cryptos loaded order by ${viewModel.sort} ${viewModel.sortDir} ", Toast.LENGTH_SHORT).show()
             }
         }
 
-         quickFind.addTextChangedListener(
+        fun updateAdapter(search: String, timeR: Int) {
+            val cryptoAdapter = viewModel.crypto.value?.filter {
+                it.name.contains(search, true) || it.symbol.contains(search, true)
+            }?.let { CryptoAdapter(it, timeR) }
+            recycler.adapter = cryptoAdapter
+        }
+
+        quickFind.addTextChangedListener(
             object : TextWatcher {
                 override fun beforeTextChanged(
                     s: CharSequence?,
@@ -61,12 +71,9 @@ class HW8Activity : AppCompatActivity() {
                 }
 
                 override fun afterTextChanged(s: Editable) {
-                    val cryptoAdapter = viewModel.crypto.value?.filter {
-                        it.name.contains(s, true) || it.symbol.contains(s, true)
-                    }?.let { CryptoAdapter(it,0) }
-                    recycler.adapter = cryptoAdapter
+                    viewModel.setFilter(s.toString())
+                    updateAdapter(viewModel.filter.value?:"", viewModel.timeRange.value ?: 0)
                 }
-
             }
         )
 
@@ -77,23 +84,53 @@ class HW8Activity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.sort_direction -> {
                     viewModel.switchSortDirection()
-                 true
+                    true
                 }
                 R.id.search -> {
-                    if (quickFind.visibility==GONE) quickFind.visibility= VISIBLE
-                    else quickFind.visibility= GONE
+                    if (quickFind.visibility == GONE) quickFind.visibility = VISIBLE
+                    else quickFind.visibility = GONE
                     true
                 }
                 R.id.refresh -> {
                     viewModel.loadCrypto()
                     true
                 }
+                R.id.sort_by_marketcap -> {
+                    viewModel.setSort("market_cap")
+                    true
+                }
+                R.id.sort_by_name -> {
+                    viewModel.setSort("name")
+                    true
+                }
+                R.id.sort_by_price -> {
+                    viewModel.setSort("price")
+                    true
+                }
                 else -> false
             }
         }
 
-        viewModel.loadCrypto()
+        val timeSlider =
+            findViewById<RangeSlider>(R.id.crypto_timerange_slider)
 
+        timeSlider.setLabelFormatter { value: Float ->
+            return@setLabelFormatter "${times[value.roundToInt()]}"
+        }
+
+        timeSlider.addOnChangeListener(object : RangeSlider.OnChangeListener {
+
+            override fun onValueChange(slider: RangeSlider, value: Float, fromUser: Boolean) {
+
+                viewModel.setTimeRange(value.roundToInt())
+                updateAdapter(viewModel.filter.value?:"", viewModel.timeRange.value ?: 0)
+                topAppBar.title = "Change in ${times[value.roundToInt()]}"
+
+
+            }
+        })
+
+        viewModel.loadCrypto()
 
     }
 }
