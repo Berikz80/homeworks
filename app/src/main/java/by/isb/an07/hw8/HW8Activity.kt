@@ -18,20 +18,12 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class HW8Activity : AppCompatActivity() {
 
-    companion object {
-        const val SHARED_PREF_FILE_NAME = "cryptos"
-        const val FAV_CRYPTOS = "fav_cryptos"
-    }
-
-    private val viewModel by lazy { ViewModelProvider(this).get(HW8ViewModel::class.java) }
+       private val viewModel by lazy { ViewModelProvider(this).get(HW8ViewModel::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hw8)
 
-        val sp = getSharedPreferences(SHARED_PREF_FILE_NAME, Context.MODE_PRIVATE)
-
-        viewModel.favCrypto = sp.getStringSet(FAV_CRYPTOS,null) as Set<String>
 
         val progressBar = findViewById<ProgressBar>(R.id.progress_bar)
         val recycler = findViewById<RecyclerView>(R.id.recycler_crypto)

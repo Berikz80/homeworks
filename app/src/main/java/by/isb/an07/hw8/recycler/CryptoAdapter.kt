@@ -9,10 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import by.isb.an07.R
-import by.isb.an07.hw8.HW8ViewModel
 import by.isb.an07.hw8.data.entities.crypto.Crypto
 import com.google.android.material.snackbar.Snackbar
 import java.math.RoundingMode
@@ -31,17 +29,13 @@ class CryptoAdapter(val cryptos: List<Crypto>) :
 
             val imageBox = itemView.findViewById<ImageView>(R.id.crypto_image)
 
-            when {
-                crypto.percentChange1h > 0 -> {
-                    imageBox.setImageResource(R.drawable.ic_trending_up)
-                    cryptoContainer.setBackgroundResource(R.color.green)
-                }
-                crypto.percentChange1h < 0 -> {
-                    imageBox.setImageResource(R.drawable.ic_trending_down)
-                    cryptoContainer.setBackgroundResource(R.color.red)
-                }
-                else -> imageBox.setImageResource(R.drawable.ic_trending_flat)
-            }
+            if (crypto.percentChange1h > 0) {
+                imageBox.setImageResource(R.drawable.ic_trending_up)
+                cryptoContainer.setBackgroundResource(R.color.green)
+            } else if (crypto.percentChange1h < 0) {
+                imageBox.setImageResource(R.drawable.ic_trending_down)
+                cryptoContainer.setBackgroundResource(R.color.red)
+            } else imageBox.setImageResource(R.drawable.ic_trending_flat)
 
             itemView.findViewById<TextView>(R.id.crypto_name).text =
                 "${crypto.name} (${crypto.symbol})"
@@ -67,7 +61,6 @@ class CryptoAdapter(val cryptos: List<Crypto>) :
         holder.setData(holder.itemView, position)
 
         val mFavButton = holder.itemView.findViewById<ImageButton>(R.id.crypto_button_menu)
-
         mFavButton.setOnClickListener {
 
 
