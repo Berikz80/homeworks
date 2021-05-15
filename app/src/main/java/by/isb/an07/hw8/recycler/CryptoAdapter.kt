@@ -62,7 +62,6 @@ class CryptoAdapter(val cryptos: List<Crypto>, val timeRange: Int) :
         val favButton = holder.itemView.findViewById<ImageButton>(R.id.crypto_button_menu)
         favButton.setOnClickListener {
 
-            TODO()
 
         }
     }

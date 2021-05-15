@@ -27,10 +27,7 @@ class HW8Activity : AppCompatActivity() {
         val recycler = findViewById<RecyclerView>(R.id.recycler_crypto)
         val quickFind = findViewById<EditText>(R.id.quick_find_crypto)
 
-        viewModel.queryParams.value?.put("sort", "market_cap")
-        viewModel.queryParams.value?.put("sortDir", "desc")
-
-        viewModel.crypto.observe(this) {
+           viewModel.crypto.observe(this) {
             val cryptoAdapter = viewModel.crypto.value?.let { CryptoAdapter(it,0) }
             recycler.adapter = cryptoAdapter
         }
@@ -50,11 +47,7 @@ class HW8Activity : AppCompatActivity() {
             }
         }
 
-        viewModel.queryParams.observe(this) {
-      //      viewModel.loadCrypto()
-        }
-
-        quickFind.addTextChangedListener(
+         quickFind.addTextChangedListener(
             object : TextWatcher {
                 override fun beforeTextChanged(
                     s: CharSequence?,

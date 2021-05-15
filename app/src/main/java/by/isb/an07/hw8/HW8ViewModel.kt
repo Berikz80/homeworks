@@ -35,21 +35,14 @@ class HW8ViewModel : ViewModel() {
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
 
-    private val _queryParams = MutableLiveData<HashMap<String, String>>()
-    val queryParams: LiveData<HashMap<String, String>> = _queryParams
-
-    fun setQueryParams(sort: String) {
-        _queryParams.value?.put("sort", sort)
-    }
-
     fun loadCrypto() {
         _loading.value = true
         ioScope.launch {
             try {
                 _crypto.postValue(
                     cryptoRepository.loadCrypto(
-                        _queryParams.value?.get("sort") ?: "market_cap",
-                        _queryParams.value?.get("sortDir") ?: "desc"
+                        _sort,
+                        _sortDir
                     )
                 )
                 _loading.postValue(false)
@@ -60,8 +53,9 @@ class HW8ViewModel : ViewModel() {
     }
 
     fun switchSortDirection() {
-        if (_queryParams.value?.get("sort") == "asc") _queryParams.value?.put("sort", "desc")
-        else _queryParams.value?.put("sort", "asc")
+        if (_sortDir == "asc") _sortDir = "desc"
+        else _sortDir = "asc"
+        loadCrypto()
     }
 
 }
