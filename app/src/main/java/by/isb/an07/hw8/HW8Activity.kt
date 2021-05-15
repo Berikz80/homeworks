@@ -1,6 +1,5 @@
 package by.isb.an07.hw8
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -24,10 +23,12 @@ class HW8Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hw8)
 
-
         val progressBar = findViewById<ProgressBar>(R.id.progress_bar)
         val recycler = findViewById<RecyclerView>(R.id.recycler_crypto)
         val quickFind = findViewById<EditText>(R.id.quick_find_crypto)
+
+        viewModel.queryParams.value?.put("sort", "market_cap")
+        viewModel.queryParams.value?.put("sortDir", "desc")
 
         viewModel.crypto.observe(this) {
             val cryptoAdapter = viewModel.crypto.value?.let { CryptoAdapter(it,0) }
@@ -47,6 +48,10 @@ class HW8Activity : AppCompatActivity() {
                 progressBar.visibility = GONE
                 Toast.makeText(this, "Cryptos loaded order by ${viewModel.sort} ${viewModel.sortDir} ", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        viewModel.queryParams.observe(this) {
+      //      viewModel.loadCrypto()
         }
 
         quickFind.addTextChangedListener(
