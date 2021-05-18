@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".hw8.HW8Activity">
+
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/crypto_topAppBar"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/crypto_top_bar_menu"
+        app:navigationIcon="@drawable/ic_crypto"
+        app:title="Change in 1h" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/quick_find_crypto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/find_crypto"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/crypto_topAppBar" />
+
+    <com.google.android.material.slider.RangeSlider
+        android:id="@+id/crypto_timerange_slider"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:stepSize="1.0"
+        android:valueFrom="0.0"
+        android:valueTo="5.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_crypto" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_crypto"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+        app:layout_constraintBottom_toTopOf="@id/crypto_timerange_slider"
+        app:layout_constraintTop_toBottomOf="@+id/quick_find_crypto"
+        tools:listitem="@layout/item_crypto" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,4 +39,16 @@
     <string name="name">Name</string>
     <string name="image_url">Image URL</string>
     <string name="price">Price</string>
+    <string name="dz8">hw8: retrofit</string>
+    <string name="find_crypto">Find crypto</string>
+    <string name="search">Find crypto</string>
+    <string name="content_description_search">search crypto</string>
+    <string name="refresh">Reload</string>
+    <string name="content_description_refresh">Refresh</string>
+    <string name="sort_direction">Change sort direction</string>
+    <string name="sort_by_marketcap">Sort by market cap</string>
+    <string name="show_favorites">Show favorites</string>
+    <string name="show_fav">Show only favorites</string>
+    <string name="sort_by_name">Sort by name</string>
+    <string name="sort_by_price">Sort by price</string>
 </resources>

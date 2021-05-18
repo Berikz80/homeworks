@@ -1,7 +1,7 @@
-package by.isb.an07.database.dao
+package by.isb.an07.hw7.database.dao
 
 import androidx.room.*
-import by.isb.an07.database.entity.Product
+import by.isb.an07.hw7.database.entity.Product
 
 @Dao
 interface ProductDao {

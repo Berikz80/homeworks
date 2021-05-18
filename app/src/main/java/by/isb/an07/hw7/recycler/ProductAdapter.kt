@@ -11,10 +11,9 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import by.isb.an07.R
-import by.isb.an07.database.entity.Product
+import by.isb.an07.hw7.database.entity.Product
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
-
 
 class ProductAdapter(val products: List<Product>) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
@@ -40,8 +39,6 @@ class ProductAdapter(val products: List<Product>) :
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_product, parent, false)
         return ProductViewHolder(view)
     }
-
-
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         holder.setData(holder.itemView, position)

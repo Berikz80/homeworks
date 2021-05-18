@@ -1,4 +1,4 @@
-package by.isb.an07.database.entity
+package by.isb.an07.hw7.database.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

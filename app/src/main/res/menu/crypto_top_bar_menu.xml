@@ -1,0 +1,50 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search"
+        android:contentDescription="@string/content_description_search"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/refresh"
+        android:icon="@drawable/ic_refresh"
+        android:title="@string/refresh"
+        android:contentDescription="@string/content_description_refresh"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/favorite"
+        android:icon="@drawable/ic_favorite_border"
+        android:title="@string/show_fav"
+        android:contentDescription="@string/show_favorites"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/sort_direction"
+        android:icon="@drawable/ic_sort_desc"
+        android:title="@string/sort_direction"
+        android:contentDescription="@string/sort_direction"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/sort_by_marketcap"
+        android:icon="@drawable/ic_sort_desc"
+        android:title="@string/sort_by_marketcap"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/sort_by_name"
+        android:icon="@drawable/ic_sort_desc"
+        android:title="@string/sort_by_name"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/sort_by_price"
+        android:icon="@drawable/ic_sort_desc"
+        android:title="@string/sort_by_price"
+        app:showAsAction="ifRoom" />
+</menu>
