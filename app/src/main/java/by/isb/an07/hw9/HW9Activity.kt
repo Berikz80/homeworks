@@ -7,8 +7,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import by.isb.an07.R
 
-class HW9Activity(millisInFuture: Long) : AppCompatActivity() {
-
+class HW9Activity : AppCompatActivity() {
+    companion object {
+        const val BROADCAST_ACTION_TOAST = "action.toast"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hw9)
@@ -17,7 +19,7 @@ class HW9Activity(millisInFuture: Long) : AppCompatActivity() {
 
         findViewById<Button>(R.id.start_button).setOnClickListener {
 
-            object : CountDownTimer(10000,1000) {
+            object : CountDownTimer(3000,1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     counterText.text = (millisUntilFinished/1000).toString()
                 }
@@ -26,7 +28,7 @@ class HW9Activity(millisInFuture: Long) : AppCompatActivity() {
 
                 }
 
-            }
+            }.start()
 
         }
 
