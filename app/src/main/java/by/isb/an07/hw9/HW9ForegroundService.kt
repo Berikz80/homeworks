@@ -13,13 +13,7 @@ class HW9ForegroundService : Service() {
     override fun onCreate() {
         super.onCreate()
 
-        val contentIntent = PendingIntent.getActivity(
-            this, 999,
-            Intent(this, HW9Activity::class.java),
-            PendingIntent.FLAG_CANCEL_CURRENT
-        )
-
-        val intent = Intent().apply {
+         val intent = Intent().apply {
             action = HW9Activity.BROADCAST_ACTION_TOAST
         }
 
@@ -35,7 +29,7 @@ class HW9ForegroundService : Service() {
             .setContentTitle("Homeworks Message")
             .setContentText("Notification succeed")
             .setSmallIcon(R.drawable.ic_crypto)
-            .setContentIntent(contentIntent)
+            .setContentIntent(actionIntent)
             .setPriority(2)
             .addAction(
                 R.drawable.ic_crypto,

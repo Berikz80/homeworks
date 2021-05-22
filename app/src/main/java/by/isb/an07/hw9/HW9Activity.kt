@@ -1,5 +1,7 @@
 package by.isb.an07.hw9
 
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Button
@@ -15,9 +17,18 @@ class HW9Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hw9)
 
+        val myReceiver = HW9BroadcastReceiver()
+
+        val intentFilter = IntentFilter().apply {
+            addAction(BROADCAST_ACTION_TOAST)
+        }
+        registerReceiver(myReceiver, intentFilter)
+
         val counterText = findViewById<TextView>(R.id.counter_text)
 
         findViewById<Button>(R.id.start_button).setOnClickListener {
+
+            val serviceIntent = Intent(this, HW9ForegroundService::class.java)
 
             object : CountDownTimer(3000,1000) {
                 override fun onTick(millisUntilFinished: Long) {
@@ -25,7 +36,7 @@ class HW9Activity : AppCompatActivity() {
                 }
 
                 override fun onFinish() {
-
+                    startService(serviceIntent)
                 }
 
             }.start()

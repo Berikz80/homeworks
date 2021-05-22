@@ -3,6 +3,8 @@
     package="by.isb.an07">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
 
     <application
         android:name=".App"
@@ -31,6 +33,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".hw9.HW9ForegroundService" />
+
     </application>
 
 </manifest>
