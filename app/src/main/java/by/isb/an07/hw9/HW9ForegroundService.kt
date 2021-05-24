@@ -27,8 +27,8 @@ class HW9ForegroundService : Service() {
             )
 
         val notification = NotificationCompat.Builder(this, App.NOTIFICATION_CHANNEL_ID)
-            .setContentTitle("Homeworks Message")
-            .setContentText("Notification succeed")
+            .setContentTitle("Advice of the day")
+            .setContentText(intent?.getStringExtra("advice"))
             .setSmallIcon(R.drawable.ic_crypto)
             .setContentIntent(actionIntent)
             .setPriority(2)
