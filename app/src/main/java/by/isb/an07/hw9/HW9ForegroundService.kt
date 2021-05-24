@@ -11,13 +11,11 @@ import by.isb.an07.R
 
 class HW9ForegroundService : Service() {
 
-    override fun onCreate() {
-        super.onCreate()
-
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
 
         val intentBroadcast = Intent().apply {
             action = HW9Activity.BROADCAST_ACTION_TOAST
-            putExtra("advice", intent.getStringExtra("advice"))
+            putExtra("advice", intent?.getStringExtra("advice"))
         }
 
         val actionIntent =
@@ -43,6 +41,7 @@ class HW9ForegroundService : Service() {
 
         startForeground(1, notification)
 
+        return super.onStartCommand(intent, flags, startId)
     }
 
     override fun onBind(intent: Intent?): IBinder? {

@@ -42,7 +42,7 @@ class HW9Activity : AppCompatActivity() {
             val serviceIntent = Intent(this, HW9ForegroundService::class.java).apply {
                 putExtra("advice", viewModel.advice)
             }
-            object : CountDownTimer(3000, 1000) {
+            object : CountDownTimer(5000, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     counterText.text = (millisUntilFinished / 1000).toString()
                 }

@@ -10,8 +10,6 @@ import androidx.core.content.ContextCompat.getSystemService
 class HW9BroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
-        val manager = context?.getSystemService(NotificationManager::class.java)
-        manager?.cancel(1)
 
         Toast.makeText(context, intent?.getStringExtra("advice"), Toast.LENGTH_SHORT).show()
 
