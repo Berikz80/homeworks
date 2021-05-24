@@ -13,7 +13,7 @@ class HW9BroadcastReceiver : BroadcastReceiver() {
         val manager = context?.getSystemService(NotificationManager::class.java)
         manager?.cancel(1)
 
-        Toast.makeText(context, "Toast", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, intent?.getStringExtra("advice"), Toast.LENGTH_SHORT).show()
 
     }
 }

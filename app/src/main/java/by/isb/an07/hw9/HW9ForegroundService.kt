@@ -3,6 +3,7 @@ package by.isb.an07.hw9
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
+import android.content.Intent.getIntent
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import by.isb.an07.App
@@ -13,15 +14,17 @@ class HW9ForegroundService : Service() {
     override fun onCreate() {
         super.onCreate()
 
-         val intent = Intent().apply {
+
+        val intentBroadcast = Intent().apply {
             action = HW9Activity.BROADCAST_ACTION_TOAST
+            putExtra("advice", intent.getStringExtra("advice"))
         }
 
         val actionIntent =
             PendingIntent.getBroadcast(
                 this,
                 777,
-                intent,
+                intentBroadcast,
                 PendingIntent.FLAG_CANCEL_CURRENT
             )
 
@@ -38,7 +41,7 @@ class HW9ForegroundService : Service() {
             ).setAutoCancel(true)
             .build()
 
-        startForeground(1,notification)
+        startForeground(1, notification)
 
     }
 
