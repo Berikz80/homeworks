@@ -11,7 +11,7 @@
         android:id="@+id/hw1_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/button_margin"
         android:text="@string/dz1"
         android:textSize="@dimen/button_text_size" />
 
@@ -19,7 +19,7 @@
         android:id="@+id/hw2_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/button_margin"
         android:text="@string/dz2"
         android:textSize="24sp" />
 
@@ -69,5 +69,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="@string/dz8"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/hw9_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="hw9:services"
         android:textSize="24sp" />
 </LinearLayout>

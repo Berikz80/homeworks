@@ -51,4 +51,5 @@
     <string name="show_fav">Show only favorites</string>
     <string name="sort_by_name">Sort by name</string>
     <string name="sort_by_price">Sort by price</string>
+    <string name="start">start</string>
 </resources>
