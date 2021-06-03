@@ -27,12 +27,21 @@ class HW7DatabaseTests {
 
     @Test
     fun insertProduct_returnTrue() {
-        val product = Product("123", 150, "test")
+        val product = Product("Name", 150, "Image")
         runBlocking {
             productDao.insert(product)
-
             Truth.assertThat(productDao.getAll()).contains(product)
         }
-
     }
+
+    @Test
+    fun deleteProduct_returnTrue() {
+        val product = Product("Name", 150, "Image")
+        runBlocking {
+            productDao.insert(product)
+            productDao.delete(product)
+            Truth.assertThat(productDao.getAll()).doesNotContain(product)
+        }
+    }
+
 }
