@@ -27,7 +27,7 @@ class HW7DatabaseTests {
 
     @Test
     fun insertProduct_returnTrue() {
-        val product = Product("Name", 150, "Image")
+        val product = Product("Name", 150, "Image",1)
         runBlocking {
             productDao.insert(product)
             Truth.assertThat(productDao.getAll()).contains(product)
@@ -41,6 +41,55 @@ class HW7DatabaseTests {
             productDao.insert(product)
             productDao.delete(product)
             Truth.assertThat(productDao.getAll()).doesNotContain(product)
+        }
+    }
+
+    @Test
+    fun updateProduct_returnTrue() {
+        val product = Product("Name", 150, "Image",1)
+        val product2 = Product("Name changed", 150, "Image",1)
+        runBlocking {
+            productDao.insert(product)
+            productDao.update(product2)
+            Truth.assertThat(productDao.getAll()).contains(product2)
+        }
+    }
+
+    @Test
+    fun updateDiffProduct_returnTrue() {
+        val product = Product("Name", 150, "Image",1)
+        val product2 = Product("Name changed", 150, "Image",2)
+        runBlocking {
+            productDao.insert(product)
+            productDao.update(product2)
+            Truth.assertThat(productDao.getAll()).doesNotContain(product2)
+        }
+    }
+
+    @Test
+    fun getAllProduct_returnTrue() {
+        val product = Product("Name", 150, "Image",1)
+        val product2 = Product("Name2", 150, "Image",2)
+        val product3 = Product("Name3", 150, "Image",3)
+        runBlocking {
+            productDao.insert(product)
+            productDao.insert(product2)
+            productDao.insert(product3)
+            Truth.assertThat(productDao.getAll()).containsExactlyElementsIn(listOf(product,product2,product3))
+        }
+    }
+
+    @Test
+    fun clearAllProduct_returnTrue() {
+        val product = Product("Name", 150, "Image",1)
+        val product2 = Product("Name2", 150, "Image",2)
+        val product3 = Product("Name3", 150, "Image",3)
+        runBlocking {
+            productDao.insert(product)
+            productDao.insert(product2)
+            productDao.insert(product3)
+            productDao.clearAll()
+            Truth.assertThat(productDao.getAll()).isEmpty()
         }
     }
 

@@ -10,6 +10,4 @@ data class Product(
     val image: String,
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
-) {
-
-}
+)
