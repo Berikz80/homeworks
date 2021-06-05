@@ -54,5 +54,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.hw9_button).setOnClickListener {
             startActivity(Intent(this, HW9Activity::class.java))
         }
+
+        findViewById<Button>(R.id.hw11_button).setOnClickListener {
+            startActivity(Intent(this, HW9Activity::class.java))
+        }
     }
 }
