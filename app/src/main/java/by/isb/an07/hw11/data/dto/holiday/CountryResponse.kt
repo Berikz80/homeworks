@@ -1,4 +1,4 @@
-package by.isb.an07.hw11.data.dto.country
+package by.isb.an07.hw11.data.dto.holiday
 
 
 import com.google.gson.annotations.SerializedName
