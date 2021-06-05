@@ -1,6 +1,7 @@
 package by.isb.an07.hw11.data.networking.holiday
 
 import by.isb.an07.hw11.data.dto.holiday.CountryResponse
+import by.isb.an07.hw11.data.dto.holiday.HolidayResponse
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
