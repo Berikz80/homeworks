@@ -1,4 +1,4 @@
-package by.isb.an07.hw11.data.mappers
+package by.isb.an07
 interface Mapper<F, T> {
     fun map(from: F): T
 }

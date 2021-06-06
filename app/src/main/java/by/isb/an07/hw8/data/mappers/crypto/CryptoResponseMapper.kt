@@ -2,7 +2,7 @@ package by.isb.an07.hw8.data.mappers.crypto
 
 import by.isb.an07.hw8.data.dto.crypto.CryptoResponse
 import by.isb.an07.hw8.data.entities.crypto.Crypto
-import by.isb.an07.hw8.data.mappers.Mapper
+import by.isb.an07.Mapper
 
 class CryptoResponseMapper : Mapper<CryptoResponse.Data, Crypto> {
 
