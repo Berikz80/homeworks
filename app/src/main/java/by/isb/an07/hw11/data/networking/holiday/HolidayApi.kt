@@ -23,7 +23,7 @@ class ApiKeyInterceptor: Interceptor {
     }
 }
 
-object CountryApi {
+object HolidayApi {
 
     fun provideRetrofit(): HolidayService {
 
