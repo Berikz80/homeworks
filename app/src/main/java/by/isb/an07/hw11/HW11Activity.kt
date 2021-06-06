@@ -1,9 +1,11 @@
 package by.isb.an07.hw11
 
+import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
 import android.widget.ProgressBar
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +24,7 @@ class HW11Activity : AppCompatActivity() {
 
     lateinit var disposables: CompositeDisposable
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
         setContentView(R.layout.activity_hw11)
@@ -55,16 +58,20 @@ class HW11Activity : AppCompatActivity() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ holidayResponse ->
 
-                        val updateCountry =  adapter.getCurrentList().find {
+                        var updateCountry =  adapter.getCurrentList().find {
                             it.code==country.code
                         }
 
                         val nextHoliday = holidayResponse.holidays.find{
                             val date = LocalDate.parse(it.date, DateTimeFormatter.ISO_DATE)
-                            val current = LocalDate.now()
-
-                            true
+                            val current = LocalDate.now().minusYears(1)
+                            (date>=current)
                         }
+
+                        updateCountry?.nextHoliday = nextHoliday?.name?:""
+                        updateCountry?.nextHolidayDate = nextHoliday?.date?:""
+
+                        adapter.updateItem(updateCountry)
 
                     },{
 

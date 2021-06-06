@@ -4,6 +4,6 @@ data class Country(
     val code: String,
     val flag: String,
     val name: String,
-    val nextHoliday: String,
-    val nextHolidayDate: String
+    var nextHoliday: String,
+    var nextHolidayDate: String
 )
