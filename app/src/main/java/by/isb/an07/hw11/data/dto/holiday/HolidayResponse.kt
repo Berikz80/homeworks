@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class HolidayResponse(
     @SerializedName("holidays")
-    val holidays: List<Holiday?>?,
+    val holidays: List<Holiday>,
 ) {
     data class Holiday(
         @SerializedName("country")
@@ -13,13 +13,7 @@ data class HolidayResponse(
         @SerializedName("date")
         val date: String?,
         @SerializedName("name")
-        val name: String?,
-        @SerializedName("observed")
-        val observed: String?,
-        @SerializedName("public")
-        val `public`: Boolean?,
-        @SerializedName("uuid")
-        val uuid: String?
+        val name: String?
     )
 
 }

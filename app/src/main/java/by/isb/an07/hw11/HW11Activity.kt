@@ -15,6 +15,8 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class HW11Activity : AppCompatActivity() {
 
@@ -46,13 +48,23 @@ class HW11Activity : AppCompatActivity() {
                 adapter.init(list as ArrayList<Country>)
 
                 Observable.fromIterable(list).subscribeOn(Schedulers.io())
-
             }
             .subscribe({ country->
-                HolidayApi.provideRetrofit().loadHolidays(country.code.orEmpty())
+                HolidayApi.provideRetrofit().loadHolidays(country.code)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({
+                    .subscribe({ holidayResponse ->
+
+                        val updateCountry =  adapter.getCurrentList().find {
+                            it.code==country.code
+                        }
+
+                        val nextHoliday = holidayResponse.holidays.find{
+                            val date = LocalDate.parse(it.date, DateTimeFormatter.ISO_DATE)
+                            val current = LocalDate.now()
+
+                            true
+                        }
 
                     },{
 
