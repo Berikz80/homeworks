@@ -41,7 +41,7 @@
             tools:text="New year" />
 
         <ProgressBar
-            android:id="@+id/coordinates_progress_bar"
+            android:id="@+id/holiday_progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"

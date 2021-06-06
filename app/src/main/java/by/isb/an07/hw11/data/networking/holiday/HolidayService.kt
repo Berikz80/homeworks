@@ -4,7 +4,7 @@ import by.isb.an07.hw11.data.dto.holiday.CountryResponse
 import by.isb.an07.hw11.data.dto.holiday.HolidayResponse
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface HolidayService {
 
@@ -13,7 +13,7 @@ interface HolidayService {
 
     @GET("v1/holidays?country={country_code}&year=2020")
     fun loadHolidays(
-        @Path("country_code")
+        @Query("country_code")
         countryCode:String
     ): Observable<HolidayResponse>
 
