@@ -48,6 +48,17 @@ class HW11Activity : AppCompatActivity() {
                 Observable.fromIterable(list).subscribeOn(Schedulers.io())
 
             }
-            .subcribe({},{})
+            .subscribe({ country->
+                HolidayApi.provideRetrofit().loadHolidays(country.code.orEmpty())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+
+                    },{
+
+                    })
+            },{
+
+            })
     }
 }
