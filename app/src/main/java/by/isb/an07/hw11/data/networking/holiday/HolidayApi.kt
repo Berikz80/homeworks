@@ -12,17 +12,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
-class ApiKeyInterceptor: Interceptor {
-
-    override fun intercept(chain: Interceptor.Chain): Response {
-        val original: Request = chain.request()
-        val request = original.newBuilder()
-            .header("key", "fcceac29-f35d-4251-ad70-1b49b93a843b")
-            .build()
-        return chain.proceed(request)
-    }
-}
-
 object HolidayApi {
 
     fun provideRetrofit(): HolidayService {
@@ -34,7 +23,6 @@ object HolidayApi {
 
         val client = OkHttpClient.Builder()
             .addInterceptor(interceptor)
-            .addInterceptor(ApiKeyInterceptor())
             .build()
 
         val retrofit = Retrofit.Builder()

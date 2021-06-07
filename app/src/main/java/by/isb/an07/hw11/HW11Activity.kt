@@ -25,8 +25,8 @@ class HW11Activity : AppCompatActivity() {
     lateinit var disposables: CompositeDisposable
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hw11)
 
         val adapter = CountryAdapter()

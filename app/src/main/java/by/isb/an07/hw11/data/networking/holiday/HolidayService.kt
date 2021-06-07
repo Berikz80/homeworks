@@ -8,10 +8,10 @@ import retrofit2.http.Query
 
 interface HolidayService {
 
-    @GET("/v1/countries")
+    @GET("/v1/countries?key=fcceac29-f35d-4251-ad70-1b49b93a843b")
     fun loadCountries(): Observable<CountryResponse>
 
-    @GET("v1/holidays?country={country_code}&year=2020&month={month}&day={day}&upcoming=true")
+    @GET("/v1/holidays?key=fcceac29-f35d-4251-ad70-1b49b93a843b&country={country_code}&year=2020&month={month}&day={day}&upcoming=true")
     fun loadHolidays(
         @Query("country_code") countryCode:String,
         @Query("day") day:Int,
