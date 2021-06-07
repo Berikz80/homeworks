@@ -3,11 +3,13 @@ package by.isb.an07.hw11
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import by.isb.an07.R
 import by.isb.an07.hw11.data.entities.holiday.Country
+import com.squareup.picasso.Picasso
 
 class CountryAdapter : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
 
@@ -33,6 +35,8 @@ class CountryAdapter : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() 
 
         fun bind(item: Country) {
             view.findViewById<TextView>(R.id.title_country).text = item.name
+
+            Picasso.get().load(item.flag).into(view.findViewById<ImageView>(R.id.flag_country))
 
             if (item.nextHoliday != null && item.nextHolidayDate != null) {
                 view.findViewById<ProgressBar>(R.id.holiday_progress_bar).visibility = View.GONE

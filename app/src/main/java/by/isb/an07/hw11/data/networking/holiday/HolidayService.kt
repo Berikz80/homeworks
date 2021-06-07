@@ -11,10 +11,11 @@ interface HolidayService {
     @GET("/v1/countries")
     fun loadCountries(): Observable<CountryResponse>
 
-    @GET("v1/holidays?country={country_code}&year=2020")
+    @GET("v1/holidays?country={country_code}&year=2020&month={month}&day={day}&upcoming=true")
     fun loadHolidays(
-        @Query("country_code")
-        countryCode:String
+        @Query("country_code") countryCode:String,
+        @Query("day") day:Int,
+        @Query("month") month:Int
     ): Observable<HolidayResponse>
 
 }

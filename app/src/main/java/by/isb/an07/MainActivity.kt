@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import by.isb.an07.hw1.HW1Activity
+import by.isb.an07.hw11.HW11Activity
 import by.isb.an07.hw2.HW2Activity
 import by.isb.an07.hw3.HW3Activity
 import by.isb.an07.hw4.HW4Activity
@@ -56,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.hw11_button).setOnClickListener {
-            startActivity(Intent(this, HW9Activity::class.java))
+            startActivity(Intent(this, HW11Activity::class.java))
         }
     }
 }

@@ -53,23 +53,23 @@ class HW11Activity : AppCompatActivity() {
                 Observable.fromIterable(list).subscribeOn(Schedulers.io())
             }
             .subscribe({ country->
-                HolidayApi.provideRetrofit().loadHolidays(country.code)
+
+
+                HolidayApi.provideRetrofit().loadHolidays(
+                    countryCode = country.code,
+                    month = 6,
+                    day=7
+                )
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ holidayResponse ->
 
-                        var updateCountry =  adapter.getCurrentList().find {
+                        val updateCountry =  adapter.getCurrentList().find {
                             it.code==country.code
                         }
 
-                        val nextHoliday = holidayResponse.holidays.find{
-                            val date = LocalDate.parse(it.date, DateTimeFormatter.ISO_DATE)
-                            val current = LocalDate.now().minusYears(1)
-                            (date>=current)
-                        }
-
-                        updateCountry?.nextHoliday = nextHoliday?.name?:""
-                        updateCountry?.nextHolidayDate = nextHoliday?.date?:""
+                        updateCountry?.nextHoliday = holidayResponse.holidays[0].name?:""
+                        updateCountry?.nextHolidayDate = holidayResponse.holidays[0].date?:""
 
                         adapter.updateItem(updateCountry)
 
